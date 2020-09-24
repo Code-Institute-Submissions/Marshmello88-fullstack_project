@@ -1,0 +1,452 @@
+
+
+body {
+    font-size: 15px;
+    font-family: 'Armata',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #3a3a3a;
+    line-height: 1.5;
+}
+
+body, html {
+    background-color: #fff;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a {
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.btn /*.btn:hover */{
+    color: #FFFFFF;
+    background-color: #000000;
+    font-size: 17px;
+    line-height: 20px;
+    padding: 16px 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* **** navigation bar **** */
+
+.grid-display {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.shop-logo {
+    margin: 15px 0;
+}
+
+.shop-logo-image img {
+    display: block;
+}
+
+.table-item {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+
+.table-item-footer {
+    vertical-align: middle;
+    /*float: left;*/
+    padding-left: 30px;
+    display: inline-block;
+    }
+
+.half1, .half2 {
+width: 50%;
+
+}
+
+.half1 {
+    float: left;
+}
+
+.half2 {
+    float: right;
+}
+.shop-nav {
+    position: relative;
+    padding: 0;
+    text-align: center;
+    margin: 25px 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.shop-nav a {
+    padding: 3px 10px;
+}
+.navlink {
+    display: block;
+    white-space: nowrap;
+}
+
+.navicons {
+    position: relative;
+    white-space: nowrap;
+}
+
+.naviconwrap {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.search-toggle {
+    display: block;
+}
+.btn-search, .burgerbtn {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    color: #3a3a3a;
+    text-align: left;
+}
+button {
+    cursor: pointer;
+}
+
+.burgerbrn-display {
+    display: none;
+}
+
+.searchicon, .carticon, .burgericon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    color: black;
+}
+
+.shopheader {
+    position: relative;
+    background-color: #fff;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.backuptext {
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+}
+
+.cartcount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0.4rem;
+    top: 0.2rem;
+    font-weight: bold;
+    background-color: #a4168c;
+    color: #fff;
+    border-radius: 50%;
+    min-width: 1em;
+    height: 1em;
+}
+
+.table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.hide {
+    display: none !important;
+}
+
+/*  MEDIA QUERIES */
+@media only screen and (min-width: 750px) {
+.shopheader {
+    padding: 0 55px;
+}
+}
+
+    @media only screen and (min-width: 750px) {
+.separator {
+    margin: 45px 0 20px 0;
+
+}
+    }
+
+@media only screen and (min-width: 750px){
+.txtalign {
+    text-align: right;
+}
+}
+
+@media only screen and (min-width: 750px){
+.xtramargin {
+    margin-bottom: 20px;
+}
+}
+
+.payment-icon {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.payment-method-icons-list {
+    margin: 0;
+}
+
+.frontpage {
+    position: relative;
+    box-sizing: border-box;
+    /*display: table;*/
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: linear-gradient(to bottom,#8cd0e3 0,#f08ccd 100%);
+    /*background-position: 50% 50%;*/
+    /*background-position: center center; background-image: url(/images/TEST.jpg)*/
+}
+
+.frontp {
+    height: auto !important;
+    background-size: 100% auto;
+    padding: 0% 0;
+    /*height: 46.18834080717489vw !important;*/
+}
+
+.twincolumnwrapper {
+    width: 85.57812%;
+    height: calc(100% - 100px);
+    position: relative;
+    margin: 0 auto;
+    padding: 50px 0 0;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.twincolumns {
+    width: calc(50% - 7.5px);
+    height: 100%;
+}
+
+.descr-wrap {
+    box-sizing: border-box;
+    width: 490px;
+    background-color: #FFF;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transform: translate(0,-50%);
+    text-align: center;
+}
+
+.descr-wrap h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+}
+
+.clicky {
+    line-height: 1rem;
+    transition: all .15s ease;
+    font-family: CeraStencilPRO;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #f5ea77;
+    color: #000;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 3px 3px 0 #73d2e6;
+    border-radius: 0;
+    outline: 0;
+    padding: 10px 0;
+    height: auto;
+    min-width: 165px;
+}
+
+.clicky {
+    /*position: absolute;*/
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    margin: 0;
+}
+
+.meh img{
+    width: 100%;
+}
+
+/*clicky:hover{
+    background:linear-gradient(to right,#8cd0e3 100%,#f08ccd 100%)
+    color: #333;
+}*/
+
+/* sources 
+https://eu1.flamingtext.com/net-fu/jobs/26848231231304726.html*/
+
+/* BRAND INFO */
+
+.brandinfosection {
+    min-height: initial;
+    max-width: 1280px;
+    background: #FBFF96;
+    padding: 70px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1113px) {
+.brandinfo-wrapper {
+    flex: 1;
+    padding-left: 80px;
+}
+}
+
+@media screen and (min-width: 1113px){
+.brandinfo-wrapper p {
+    padding: 0px 25px 0 0;
+    text-align: left;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+}
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 375px;
+    margin-bottom: 20px;
+}
+
+/* MY FOOTER */
+
+.myfooter {
+    margin-top: 55px;
+    padding: 45px 0 55px 0;
+    color: #333232;
+    background-color: #f6f6f6;
+}
+
+.separator {
+    border-bottom: 1px solid #dddddd;
+}
+
+.shopwidth {
+    padding-left: 55px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 55px;
+}
+
+.instagram {
+    background-image: url("https://cdn11.bigcommerce.com/s-9p889rxpkb/stencil/5667ecb0-bd4c-0138-1fe1-0242ac11000c/e/bf3813b0-bd52-0138-b26b-0242ac110008/icons/icon-youtube.svg");
+}
+
+/*sign up section*/
+
+.signup-section {
+    padding: 10rem 0;
+    background: url(/images/spacebg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+.signupwrapper {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (min-width: 1113px){
+.signupwrapper {
+    width: 80%;
+    margin: auto;
+}
+}
+
+.signuprow {
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+    text-align: center
+}
+
+.signupmargin {
+    margin-left: 12rem;
+    margin-right: auto;
+    padding-top: 5rem;
+}
+
+.h2margin {
+    margin-bottom: 1rem !important;
+    text-align: center;
+    font-size: 19px;
+    line-height: 38px;
+}
+
+
+.form-inline input {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 1.25rem 2rem;
+    height: auto;
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    border: 0;
+    width: 600px;
+}
+
+.btn {
+    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 1.25rem 2rem;
+    font-size: 80%;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    color: #fff;
+    border: 0;
+}
+
+@media (min-width: 576px){
+.inputmargin {
+    margin-right: 0.7rem !important;
+}
+}
