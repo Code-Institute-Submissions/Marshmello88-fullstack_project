@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+import os
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +62,10 @@ ROOT_URLCONF = 'ecommerce_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,7 +96,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory' #verifying your email is mendatory
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True #gotta use it twice
 ACCOUNT_USERNAME_MIN_LENGTH = 4 
 LOGIN_URL = '/accounts/login/'   #login url
-LOGIN_REDIRECT_URL = '/'   # url to redirect to after loggin in
+LOGIN_REDIRECT_URL = '/success'   # url to redirect to after loggin in
 
 WSGI_APPLICATION = 'ecommerce_project.wsgi.application'
 
@@ -142,3 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
