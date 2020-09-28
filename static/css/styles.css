@@ -7,6 +7,7 @@ body {
     font-weight: 400;
     color: #3a3a3a;
     line-height: 1.5;
+    padding-top: 100px;
 }
 
 body, html {
@@ -38,7 +39,7 @@ a {
     margin-top: 20px;
 }
 
-/* **** navigation bar **** */
+/* **** old navigation bar 
 
 .grid-display {
     display: table;
@@ -58,14 +59,15 @@ a {
     display: table-cell;
     vertical-align: middle;
     float: none;
-}
+}*/
+
+/* footer stuff */
 
 .table-item-footer {
     vertical-align: middle;
-    /*float: left;*/
     padding-left: 30px;
     display: inline-block;
-    }
+    }*/
 
 .half1, .half2 {
 width: 50%;
@@ -114,13 +116,14 @@ ul {
 .search-toggle {
     display: block;
 }
-.btn-search, .burgerbtn {
+.btn-search {
     background-color: transparent;
     border: 0;
     margin: 0;
     color: #3a3a3a;
     text-align: left;
 }
+
 button {
     cursor: pointer;
 }
