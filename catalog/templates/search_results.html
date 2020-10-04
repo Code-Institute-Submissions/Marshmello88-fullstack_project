@@ -1,0 +1,10 @@
+<p> Presults '{{query_string}}'</p> 
+{% for product in Products %}
+    <div>
+        <span> {{ product.created }} </span>
+        <a href=""><h2 class="page-title">{{ product.name }}</h2></a>
+        <div class="post">
+            {{ product.body|safe }}
+        </div>
+    </div>
+{% endfor %}

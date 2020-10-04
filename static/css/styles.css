@@ -319,7 +319,8 @@ https://eu1.flamingtext.com/net-fu/jobs/26848231231304726.html*/
 
 .brandinfosection {
     min-height: initial;
-    max-width: 1280px;
+    /*max-width: 1280px;*/
+width: 100%;
     background: #FBFF96;
     padding: 70px 0px;
     display: flex;
@@ -434,6 +435,7 @@ https://eu1.flamingtext.com/net-fu/jobs/26848231231304726.html*/
     letter-spacing: 0.15rem;
     border: 0;
     width: 600px;
+    margin:0 auto;
 }
 
 .btn {
