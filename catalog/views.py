@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Category
+from django.views.generic import ListView
+from django.db.models import Q # new
+
 
 # Create your views here.
 
@@ -7,23 +10,31 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
+    query = None #new
+    categories = None #new
+
+    if request.GET: #new
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
+        if 'q' in request.GET: #new
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
 
     context = {
         'products': products,
+        'search_term': query, #new
+        'current_categories': categories, #new
     }
 
     return render(request, 'products.html', context)
-
-def search(request):
-    query_string = ''
-    found_entries = None
-    if ('q' in request.GET) and request.GET['q'].strip():
-        query_string = request.GET['q']
-        entry_query = utils.get_query(query_string, ['title', 'body',])
-        posts = Post.objects.filter(entry_query).order_by('created')
-        return render(request, 'search_results.html', { 'query_string': query_string, 'posts': posts })
-    else:
-        return render(request, 'search_resukts.html', { 'query_string': 'Null', 'found_entries': 'Enter a search term' })
 
 
 #https://djangopy.org/how-to/how-to-implement-categories-in-django/

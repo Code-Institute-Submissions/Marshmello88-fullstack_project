@@ -1,6 +1,8 @@
-<p> Presults '{{query_string}}'</p> 
-{% for product in Products %}
+<p> Search results </p> 
+{% for product in products %}
     <div>
+     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+
         <span> {{ product.created }} </span>
         <a href=""><h2 class="page-title">{{ product.name }}</h2></a>
         <div class="post">
@@ -8,3 +10,14 @@
         </div>
     </div>
 {% endfor %}
+
+
+<h1>Search Results</h1>
+
+<ul>
+  {% for product in products %}
+    <li>
+      {{ product.name }}, {{ product.description }}
+    </li>
+  {% endfor %}
+</ul>
