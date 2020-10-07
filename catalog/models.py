@@ -53,6 +53,7 @@ class Product(models.Model):
         db_table = 'products'           
         ordering = ['-created_at'] 
 
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=255, unique=True)    
     description = models.TextField()  
     slug = models.SlugField(max_length=255, unique=True)      
@@ -68,7 +69,7 @@ class Product(models.Model):
     #meta_description = models.CharField(max_length=255)      
     created_at = models.DateTimeField(auto_now_add=True)      
     updated_at = models.DateTimeField(auto_now=True)      
-    categories = models.ManyToManyField(Category)
+    #categories = models.ManyToManyField(Category)
     is_bestseller = models.BooleanField(default=False) 
 
 

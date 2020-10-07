@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
-from django.views.generic import ListView
 from django.db.models import Q # new
+from django.contrib import messages
 
 
 # Create your views here.
@@ -13,11 +13,14 @@ def all_products(request):
     query = None #new
     categories = None #new
 
+    print(f"REQUEST: {request.GET}")
+
     if request.GET: #new
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
+            print(f"Category: {categories}")
             products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            categories = Category.objects.filter(name=categories)
 
         if 'q' in request.GET: #new
             query = request.GET['q']

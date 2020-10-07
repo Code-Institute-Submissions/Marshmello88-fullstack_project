@@ -1,0 +1,49 @@
+<div class="collapse navbar-collapse bgcolor" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop All Amiibo
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop by Species
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                <a href="{% url 'products' %}?category=Alligator" class="dropdown-item">Alligators</a>
+                <a href="{% url 'products' %}?category=Cats" class="dropdown-item">Cats</a>
+                <a href="{% url 'products' %}?category=Dogs" class="dropdown-item">Dogs</a>
+                <a href="{% url 'products' %}?category=Octopus" class="dropdown-item">Octopuses</a>
+                <a href="{% url 'products' %}?category=Duck" class="dropdown-item">Ducks</a>
+                <a href="{% url 'products' %}?category=Koala" class="dropdown-item">Koalas</a>
+                <a href="{% url 'products' %}?category=Squirrel" class="dropdown-item">Squirrels</a>
+                <a href="{% url 'products' %}?category=Elephant" class="dropdown-item">Elephants</a>
+                <a href="{% url 'products' %}?category=Rabbit" class="dropdown-item">Rabbit</a>
+                <a href="{% url 'products' %}?category=Wolf" class="dropdown-item">Wolves</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop by Personality
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+                <a href="{% url 'products' %}?category=Normal" class="dropdown-item">Normal</a>
+                <a href="{% url 'products' %}?category=Lazy" class="dropdown-item">Lazy</a>
+                <a href="{% url 'products' %}?category=Sisterly" class="dropdown-item">Sisterly</a>
+                <a href="{% url 'products' %}?category=Snooty" class="dropdown-item">Snooty</a>
+                <a href="{% url 'products' %}?category=Cranky" class="dropdown-item">Cranky</a>
+                <a href="{% url 'products' %}?category=Jock" class="dropdown-item">Jock</a>
+                <a href="{% url 'products' %}?category=Peppy" class="dropdown-item">Peppy</a>
+                <a href="{% url 'products' %}?category=Smug" class="dropdown-item">Smug</a>
+            </div>
+        </li>
+
+    </ul>
+</div>
