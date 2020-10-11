@@ -405,6 +405,33 @@ width: 100%;
     padding-right: 25px;
 }
 
+.cardsetimg {
+    position: relative;
+    text-align: center;
+}
+
+.cardsetimg img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    
+}
+
+.cardsetimg img:not(:first-child) {
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    max-width: 100%;
+
+    /*top: 50%;
+    left: 75%;*/
+    /*transform: translate(-50%, -50%);*/
+}
 
 .notification_wrapper {
     display: flex;

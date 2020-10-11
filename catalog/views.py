@@ -20,6 +20,7 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             print(f"Category: {categories}")
             products = products.filter(category__name__in=categories)
+            print(f"Category: {products}")
             categories = Category.objects.filter(name=categories)
 
         if 'q' in request.GET: #new
@@ -38,6 +39,18 @@ def all_products(request):
     }
 
     return render(request, 'products.html', context)
+
+
+def product_detail(request, product_id):
+    """ A view to show individual product details """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'product_detail.html', context)
 
 
 #https://djangopy.org/how-to/how-to-implement-categories-in-django/
