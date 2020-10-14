@@ -433,6 +433,14 @@ width: 100%;
     /*transform: translate(-50%, -50%);*/
 }
 
+.addtocartbtn {
+    margin-top: 18rem;
+}
+
+.cartcontentwrap {
+    margin-top: 11rem;
+}
+
 .notification_wrapper {
     display: flex;
     align-items: center;

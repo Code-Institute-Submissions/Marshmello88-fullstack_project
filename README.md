@@ -18,3 +18,15 @@ user’s shopping cart:
 2. Product ID
 3. Date product was added to the cart
 4. Quantity in the cart
+
+
+<!-- FORM TEST-->
+
+			<!--<div class="addtocartbtn">
+            <form method="POST" action="." class="cart">
+            {% csrf_token %}
+		{{ form.as_p }}
+		<br />
+		<input type="submit" value="Add To Cart" name="submit" alt="Add To Cart" />
+	</form>
+    </div>-->

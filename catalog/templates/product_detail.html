@@ -1,43 +1,108 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+<div class="row">
+   <div class="col"></div>
+</div>
 {% endblock %}
-
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
-                    {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                    {% endif %}
-                </div>
+<div class="overlay"></div>
+<div class="container-fluid">
+<div class="row">
+   <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+      <div class="image-container my-5">
+         {% if product.image %}
+         <a href="{{ product.image.url }}" target="_blank">
+         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+         </a>
+         {% else %}
+         <a href="">
+         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+         </a>
+         {% endif %}
+      </div>
+   </div>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+   <div class="product-details-container mb-5 mt-md-5">
+      <p class="mb-0">{{ product.name }}</p>
+      <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+      {% if product.rating %}
+      <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+      {% else %}
+      <small class="text-muted">No Rating</small>
+      {% endif %}
+      <p class="mt-3">{{ product.description }}</p>
+   </div>
+</div>
+<form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+   {% csrf_token %}
+   <div class="form-row">
+      <div class="col-12">
+         <p class="mt-3"><strong>Quantity:</strong></p>
+         <div class="form-group w-50">
+            <div class="input-group">
+               <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
-                    {% endif %}
-                    <p class="mt-3">{{ product.description }}</p>
-                </div>
+         </div>
+      </div>
+      <div class="col-12">
+         <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+         <span class="icon">
+         <i class="fas fa-chevron-left"></i>
+         </span>
+         <span class="text-uppercase">Keep Shopping</span>
+         </a>
+         <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+      </div>
+      <input type="hidden" name="redirect_url" value="{{ request.path }}">
+   </div>
+</form>
+<h2 class="subtitle">Reviews </h2>
+<div class="reviews">
+   {% for review in product.reviews.all %}
+   <div class="notification">
+      <p>
+         <strong> Date: </strong> {{ review.created_at|date:"Y-M-D" }},
+         <strong> Stars:  </strong> {{ review.stars }}
+      </p>
+   </div>
+   {{ review.content }}
+   {% empty %}
+   <div class="notification">
+      No reviews yet.
+   </div>
+   {% endfor %}
+   <div class="notification">
+      {% if request.user.is_authenticated %}
+	<form method="POST" action="{% url 'add_review' product.id %}">
+		{% csrf_token %}
+		<div class="field">
+			<label> Stars </label>
+			<select class="star-rating">
+	<option name="review" value="5"> 5</option> 
+	<option name="review" value="4"> 4</option> 
+	<option name="review" value="3"> 3</option> 
+	<option name="review" value="2"> 2</option> 
+	<option name="review" value="1"> 1</option> 
+			</select>
+			</div>
+         <div class="field">
+            <label> Content</label>
+            <div class="control">
+               <textarea class="textarea" name="content"> </textarea>
+               <div class="field">
+                  <div class="control">
+                     <button class="button is-success"> submit </button>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
+         </div>
+      </form>
+      {% else %}
+      <p> please sign in to add review </p>
+      {% endif %}
+   </div>
+</div>
 {% endblock %}

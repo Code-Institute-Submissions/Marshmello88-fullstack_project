@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Product, Category
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from .models import Product, Category, ProductReview
 from django.db.models import Q # new
 from django.contrib import messages
 
@@ -46,11 +46,37 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    # add review
+
+ #   if request.method == 'POST' and request.user.is_authenticated:
+  #      stars = request.POST.get('stars', 3)
+    #    content = request.POST.get('content', '')
+
+    #    review = ProductReview.objects.create(product=product, user=request.user, stars=stars, content=content)
+
+     #   return redirect('product_detail')
+
     context = {
         'product': product,
     }
 
     return render(request, 'product_detail.html', context)
+
+def add_review(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        stars = request.POST.get('stars', 3)
+        content = request.POST.get('content', '')
+
+        review = ProductReview.objects.create(product=product, user=request.user, stars=stars, content=content)
+        review.save()
+
+        print(f"REQUEST: {request.POST}")
+
+
+        return redirect(reverse('product_detail', args=[product_id]))
+
 
 
 #https://djangopy.org/how-to/how-to-implement-categories-in-django/
