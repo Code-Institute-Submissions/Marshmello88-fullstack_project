@@ -93,11 +93,8 @@ class ProductReview(models.Model):
     user = models.ForeignKey(User,blank=True, null=True ,related_name='reviews', on_delete=models.CASCADE)
     subject = models.TextField(blank=True, null=True)
     content = models.TextField(blank=True, null=True)
-    stars = models.IntegerField(default=1)
+    stars = models.IntegerField()
 
     created_at = models.DateTimeField(auto_now_add=True)      
     updated_at = models.DateTimeField(auto_now=True)    
-
-    def __str__(self):
-        return self.subject
 

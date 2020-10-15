@@ -64,15 +64,15 @@ def product_detail(request, product_id):
 
 def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-
+    print(f"product: {product}")
     if request.method == 'POST' and request.user.is_authenticated:
-        stars = request.POST.get('stars', 3)
+        print(f"star in the request: {request.POST['stars']}")
+        stars = request.POST.get('stars', 4)
         content = request.POST.get('content', '')
 
         review = ProductReview.objects.create(product=product, user=request.user, stars=stars, content=content)
         review.save()
 
-        print(f"REQUEST: {request.POST}")
 
 
         return redirect(reverse('product_detail', args=[product_id]))
