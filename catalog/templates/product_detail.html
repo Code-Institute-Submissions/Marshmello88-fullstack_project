@@ -57,55 +57,64 @@
          <h5 class="reviewtitle">Reviews</h5>
          <h6 class="reviewsHeader">{{ product.name }}</h6>
       </div>
-   <div class="reviews flex-wrap">
-      {% for review in product.reviews.all %}
-      <div class="notification">
-         <p class ="reviewtxt">
-            <span> <i class="fas fa-user"></i> </span>{{ request.user.username }}
-            <span> <i class="fas fa-clock"></i></span> {{ review.created_at|date:"Y-M-D" }} <br>
-         </p>
-        <!-- <p><strong> Stars: </strong> {{ review.stars }} </p> -->
-      <i class="fa fa-star{% if review.stars < 1 %}-o empty{% endif %}"></i>
-      <i class="fa fa-star{% if review.stars < 2 %}-o empty{% endif %}"></i>
-      <i class="fa fa-star{% if review.stars < 3 %}-o empty{% endif %}"></i>
-      <i class="fa fa-star{% if review.stars < 4 %}-o empty{% endif %}"></i>
-      <i class="fa fa-star{% if review.stars < 5 %}-o empty{% endif %}"></i> 
-      </div>
-   </div>
-   <div class="reviewbody">
-      {{ review.content }}
-   </div>
-   {% empty %}
-   <div class="notification">
-      No reviews yet.
-   </div>
-   {% endfor %}
-   <div class="notification">
-      {% if request.user.is_authenticated %}
-      <form method="POST" action="{% url 'add_review' product.id %}">
-         {% csrf_token %}
-         <div class="field">
-            <label> Stars </label>
-            <select class="stars" name="stars">
-               <option  value="5"> 5</option>
-               <option  value="4"> 4</option>
-               <option  value="3"> 3</option>
-               <option  value="2"> 2</option>
-               <option  value="1"> 1</option>
-            </select>
+      <!-- actual review here -->
+      <div class="reviews flex-wrap">
+         {% for review in product.reviews.all %}
+         <div class="notification">
+            <p class ="reviewtxt">
+               <span> <i class="fas fa-user"></i> </span>{{ request.user.username }}
+               <span> <i class="fas fa-clock"></i></span> {{ review.created_at|date:"Y-M-D" }} <br>
+            </p>
+            <!-- <p><strong> Stars: </strong> {{ review.stars }} </p> -->
+            <i class="fa fa-star{% if review.stars < 1 %}-o empty{% endif %}"></i>
+            <i class="fa fa-star{% if review.stars < 2 %}-o empty{% endif %}"></i>
+            <i class="fa fa-star{% if review.stars < 3 %}-o empty{% endif %}"></i>
+            <i class="fa fa-star{% if review.stars < 4 %}-o empty{% endif %}"></i>
+            <i class="fa fa-star{% if review.stars < 5 %}-o empty{% endif %}"></i> 
          </div>
-         <div class="field">
-            <label> Content</label>
-            <div class="control">
-               <textarea class="textarea" name="content"> </textarea>
-               <div class="field">
+         <div class="reviewbody">
+            {{ review.content }}
+         </div>
+      {% empty %}
+      <div class="notification">
+         No reviews yet.
+      </div>
+      {% endfor %}
+    </div>
+      <div class="notification">
+         {% if request.user.is_authenticated %}
+         <form method="POST" action="{% url 'add_review' product.id %}">
+            {% csrf_token %}
+            <div class="addcommentwrapper">
+               <div class="field submitbtn cartbtn">
+                  <label class="m-0"> Stars </label>
+                  <select class="stars qty" name="stars">
+                     <option  class ="qty" value="5"> 5</option>
+                     <option  class ="qty" value="4"> 4</option>
+                     <option  class ="qty" value="3"> 3</option>
+                     <option  class ="qty" value="2"> 2</option>
+                     <option  class ="qty" value="1"> 1</option>
+                  </select>
+               </div>
+               <div class="btnseparator"></div>
+               <div class="field ">
                   <div class="control">
-                     <button class="button is-success"> submit </button>
+                     <button class="submitbtn cartbtn"> submit </button>
                   </div>
                </div>
             </div>
-         </div>
-      </form>
+            <div class="field">
+               <label> Content</label>
+               <div class="control">
+                  <textarea class="textarea" name="content"> </textarea>
+                  <!--<div class="field">
+                     <div class="control">
+                        <button class="btn cartbtn"> submit </button>
+                     </div>
+                     </div>-->
+               </div>
+            </div>
+         </form>
       </div>
       {% else %}
       <p> please sign in to add review </p>

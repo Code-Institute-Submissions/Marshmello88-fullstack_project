@@ -451,6 +451,49 @@ background-color: /*#B8FBFF;*/ #A8E7F5;
 padding-top: 4rem;
 }
 
+.otp-qty {
+    display: flex;
+    align-items: center;
+    margin: 15px 30px;
+}
+
+.qty {
+    font-size: 18px;
+    border: none;
+    text-align: center;
+    width: 80px;
+    margin: 0;
+    background: #FF9CEE;
+    font-family: 'National 2 Bold Italic';
+}
+
+.addcommentwrapper {
+    background: #FF9CEE;
+    display: flex;
+    align-items: center;
+    margin: 15px 30px;
+    width: 25%;
+}
+
+.submitbtn {
+    box-shadow: none!important;
+    padding: 1.25rem 2rem;
+    font-size: 80%;
+    text-transform: uppercase;
+    color: #000000;
+    letter-spacing: 0.11px;
+    text-align: center;
+    font-weight: 900;
+    border: none;
+}
+
+.btnseparator {
+    border-right: 1px solid #000000;
+    margin-right: 0px;
+    height: 29px;
+}
+
+
 
 .reviewbody {
     font-size: 13px;
@@ -673,4 +716,18 @@ p {
 .inputmargin {
     margin-right: 0.7rem !important;
 }
+}
+
+
+/* */
+.scrollable {
+    overflow: auto;
+  white-space: nowrap;
+}
+
+.wraptest {
+    display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
 }
