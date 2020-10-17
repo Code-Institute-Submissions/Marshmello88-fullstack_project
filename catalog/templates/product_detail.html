@@ -54,7 +54,7 @@
    <!--REVIEW SECTION-->
    <div class="reviewheader">
       <div class="headerInnerContainer">
-         <h5 class="reviewtitle">Reviews</h5>
+         <h5 class="reviewtitle">Reviews : )</h5>
          <h6 class="reviewsHeader">{{ product.name }}</h6>
       </div>
       <!-- actual review here -->
@@ -74,19 +74,41 @@
          </div>
          <div class="reviewbody">
             {{ review.content }}
+            
          </div>
       {% empty %}
       <div class="notification">
          No reviews yet.
       </div>
       {% endfor %}
+       <!--<button type="button" name="more_comments" class="btn btn-primary" > more comments </button>  new -->
+   </div>
     </div>
       <div class="notification">
          {% if request.user.is_authenticated %}
          <form method="POST" action="{% url 'add_review' product.id %}">
             {% csrf_token %}
+
+<div class = "row bg-yellow">
+            <div class="addcommenttxt col-md-12">
+<p> Leave your review : </p>
+            </div>
+
+            
+            <div class="field col-md-8">
+               <div class="control">
+                  <textarea class="textarea commentsection" name="content"> </textarea>
+                  <!--<div class="field">
+                     <div class="control">
+                        <button class="btn cartbtn"> submit </button>
+                     </div>
+                     </div>-->
+               </div>
+            </div>
+
+            <div class="col-md-4">
             <div class="addcommentwrapper">
-               <div class="field submitbtn cartbtn">
+               <div class="field submitbtn">
                   <label class="m-0"> Stars </label>
                   <select class="stars qty" name="stars">
                      <option  class ="qty" value="5"> 5</option>
@@ -99,26 +121,26 @@
                <div class="btnseparator"></div>
                <div class="field ">
                   <div class="control">
-                     <button class="submitbtn cartbtn"> submit </button>
+                     <button class="submitbtn "> submit </button>
                   </div>
                </div>
             </div>
-            <div class="field">
-               <label> Content</label>
-               <div class="control">
-                  <textarea class="textarea" name="content"> </textarea>
-                  <!--<div class="field">
-                     <div class="control">
-                        <button class="btn cartbtn"> submit </button>
-                     </div>
-                     </div>-->
-               </div>
             </div>
          </form>
+                     </div>
+
       </div>
       {% else %}
       <p> please sign in to add review </p>
       {% endif %}
    </div>
 </div>
+
+
+
+
 {% endblock %}
+
+
+
+

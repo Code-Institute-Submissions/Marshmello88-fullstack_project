@@ -451,49 +451,66 @@ background-color: /*#B8FBFF;*/ #A8E7F5;
 padding-top: 4rem;
 }
 
-.otp-qty {
-    display: flex;
-    align-items: center;
-    margin: 15px 30px;
-}
 
 .qty {
-    font-size: 18px;
+    /*color: #fff;*/
+    font-size: 20px;
+    font-weight: 800;
     border: none;
     text-align: center;
     width: 80px;
     margin: 0;
-    background: #FF9CEE;
-    font-family: 'National 2 Bold Italic';
+    /*background: #FF9CEE;*/
+    padding-left: 8px;
+   /* font-family: 'National 2 Bold Italic';*/
 }
 
 .addcommentwrapper {
-    background: #FF9CEE;
+    /*background: #FF9CEE;*/
     display: flex;
     align-items: center;
-    margin: 15px 30px;
-    width: 25%;
+    margin-right: 30px;
+    height: 67.5%;
+
+    border: 2px solid black;
+    background: white;
+}
+
+.commentsection {
+    margin-left: 30px;
+width: 100%;
+    border: 2px solid black;
+   height: 75px;
+    font-family: 'Pitch Sans Medium', 'Courier New';
+    color: black;
+    line-height: 20px;
+    margin-bottom: 30px;
+ font-size: 1em;
+
 }
 
 .submitbtn {
     box-shadow: none!important;
-    padding: 1.25rem 2rem;
-    font-size: 80%;
+    padding: 1.25rem 1.5rem;
     text-transform: uppercase;
-    color: #000000;
+    /*color: #fff;*/
     letter-spacing: 0.11px;
     text-align: center;
     font-weight: 900;
     border: none;
+font-size: 17px;
+background-color: white;
 }
 
 .btnseparator {
-    border-right: 1px solid #000000;
+    border-right: 1px solid #fff;
     margin-right: 0px;
     height: 29px;
 }
 
-
+.reviews {
+    width: 50%;
+}
 
 .reviewbody {
     font-size: 13px;
@@ -520,10 +537,27 @@ position: relative;
 
 .reviewtitle {
     text-transform: uppercase;
-    font-size: 28px;
     display: inline-block;
     position: relative;
     padding: 0 15px;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 48px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.addcommenttxt p {
+    margin: 36px 30px;
+    text-align: center;
+text-transform: uppercase;
+    font-weight: 900;
+
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 48px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 h6.reviewsHeader {
@@ -696,16 +730,7 @@ p {
     margin:0 auto;
 }
 
-.btn {
-    box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-    padding: 1.25rem 2rem;
-    font-size: 80%;
-    text-transform: uppercase;
-    color: #000000;
-    letter-spacing: 0.11px;
-    text-align: center;
-    font-weight: 900;
-}
+
 
 .btn-primary {
     color: #fff;
@@ -718,6 +743,11 @@ p {
 }
 }
 
+.bg-yellow {
+    background: #FBFF96;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
 /* */
 .scrollable {
@@ -731,3 +761,4 @@ p {
   padding: 14px;
   text-decoration: none;
 }
+
