@@ -820,3 +820,7 @@ p {
   text-decoration: none;
 }
 
+.carttitle {
+    text-align: center;
+    padding-top: 4rem;
+}
