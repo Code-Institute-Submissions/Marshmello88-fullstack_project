@@ -41,7 +41,7 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -119,7 +119,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'catalog/includes/quantity_input_script.html' %}
+{% include 'includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
     // Update quantity on click
@@ -133,7 +133,7 @@
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size');
-        var url = `/bag/remove/${itemId}`;
+        var url = `/cart/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
 
         $.post(url, data)

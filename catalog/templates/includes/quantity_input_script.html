@@ -37,6 +37,7 @@
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue - 1);
+       console.log(currentValue)
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
     });
