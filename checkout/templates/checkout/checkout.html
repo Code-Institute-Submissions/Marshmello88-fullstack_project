@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Checkout</h2>
+                <h2 class="logo-font mb-4 productname carttitle">Checkout</h2>
                 <hr>
             </div>
         </div>
@@ -60,14 +60,14 @@
                 <hr class="my-0">
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
-                        <p class="my-0">Order Total:</p>
+                        <p class="my-0">Total:</p>
                         <p class="my-0">Delivery:</p>
-                        <p class="my-0">Grand Total:</p>
+                        <p class="my-0">Order Total:</p>
                     </div>
                     <div class="col-3">
                         <p class="my-0">${{ total | floatformat:2 }}</p>
                         <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0"><strong>${{ total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
@@ -113,13 +113,13 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'show_cart' %}" class="btn btn-outline-black rounded-0">
+						<a href="{% url 'show_cart' %}" class="btn cartbtn rounded-0">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
 							<span class="font-weight-bold">Adjust Cart</span>
 						</a>
-						<button id="submit-button" class="btn btn-black rounded-0">
+						<button id="submit-button" class="btn cartbtn rounded-0">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>

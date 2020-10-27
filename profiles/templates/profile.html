@@ -14,22 +14,22 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
+<div class="profilewrapper specialbg">
+    <div class="container margin">
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
+                <h2 class="logo-font mb-4 productname carttitle">My Profile</h2>
                 <hr>
             </div>
         </div>
-        <div class="row">
+        <div class="row ">
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Default Delivery Information</p>
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                <form class="mt-3 specialform" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                    <button class="btn cartbtn rounded-0 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
@@ -71,6 +71,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}
 

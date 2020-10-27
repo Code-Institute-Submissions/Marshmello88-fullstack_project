@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.forms import ModelForm #new
+from django.views.generic import ListView #new
 
 
 class Category(models.Model):
@@ -73,6 +74,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)      
     category = models.ManyToManyField(Category)
     is_bestseller = models.BooleanField(default=False) 
+    favorite = models.ManyToManyField(User, related_name='favorite', default=None, blank=True)
 
 
 
@@ -97,4 +99,11 @@ class ProductReview(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)      
     updated_at = models.DateTimeField(auto_now=True)    
+
+
+class review_list(ListView):
+    model = ProductReview
+    paginate_by = 5
+    template_name = 'product_detail.html'
+    context_object_name = 'review'
 

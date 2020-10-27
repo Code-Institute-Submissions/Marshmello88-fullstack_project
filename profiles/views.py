@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
+from catalog.models import Product #new
+from django.http import HttpResponseRedirect
 
 from checkout.models import Order
 
@@ -50,3 +52,21 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+@ login_required
+def favorite_list(request):
+    new = Product.objects.filter(favorite=request.user)
+    return render(request,
+                  'favorites.html',
+                  {'new': new})
+
+
+@login_required
+def add_favorites(request, id):
+        product = get_object_or_404(Product, id = id)
+        if product.favorite.filter(id=request.user.id).exists():
+            product.favorite.remove(request.user)
+        else:
+            product.favorite.add(request.user)
+            messages.success(request, f'Added {product.name} to favorites!')
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Product, Category, ProductReview
 from django.db.models import Q # new
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -46,21 +47,21 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    # add review
+    #review = ProductReview.objects.get_queryset().order_by('id')
+    review = product.reviews.all()
 
- #   if request.method == 'POST' and request.user.is_authenticated:
-  #      stars = request.POST.get('stars', 3)
-    #    content = request.POST.get('content', '')
+    paginator = Paginator(review, 2)
 
-    #    review = ProductReview.objects.create(product=product, user=request.user, stars=stars, content=content)
-
-     #   return redirect('product_detail')
+    page = request.GET.get('page')
+    reviews = paginator.get_page(page)
 
     context = {
         'product': product,
+        'reviews': reviews
     }
 
     return render(request, 'product_detail.html', context)
+    
 
 def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -73,9 +74,9 @@ def add_review(request, product_id):
         review = ProductReview.objects.create(product=product, user=request.user, stars=stars, content=content)
         review.save()
 
-
-
         return redirect(reverse('product_detail', args=[product_id]))
+
+
 
 
 

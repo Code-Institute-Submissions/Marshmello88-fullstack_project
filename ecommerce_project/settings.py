@@ -93,6 +93,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -111,7 +113,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory' #verifying your email is mendatory
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True #gotta use it twice
 ACCOUNT_USERNAME_MIN_LENGTH = 4 
 LOGIN_URL = '/accounts/login/'   #login url
-LOGIN_REDIRECT_URL = '/success'   # url to redirect to after loggin in
+LOGIN_REDIRECT_URL = '/'   # url to redirect to after loggin in
 
 WSGI_APPLICATION = 'ecommerce_project.wsgi.application'
 
@@ -178,3 +180,5 @@ STRIPE_CURRENCY = 'EUR'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+DEFAULT_FROM_EMAIL = 'm.neibauere@gmail.com'
+
