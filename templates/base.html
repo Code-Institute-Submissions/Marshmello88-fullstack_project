@@ -26,9 +26,9 @@
   </head>
 
   <body>
-    <header class="container-fluid fixed-top bg-light">
+    <header class="container-fluid fixed-top bg-white">
         <div class="row">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left d-none d-sm-block">
                 <a href="{% url 'home'%}" class="shop-logo-image">
                   <img class="" src="/media/images/testlogo.png" style="max-width:250px;">
                   </a>
@@ -87,7 +87,7 @@
 
         <!-- category shizzle-->
 
-         <div class="row bg-white">
+         <div class="row bg-light">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -136,7 +136,7 @@
          <div class="text-center">
             <img class="" aria-hidden="true"><i class="fas fa-rocket fa-3x"></i>
             <h2 class="h2margin">Subscribe for whatever!</h2>
-            <form class="frminline">
+            <form method="POST" class="frminline"> {% csrf_token %}
                <input class=" inputmargin" id="inputEmail" type="email" placeholder="Enter email address..."><button class="btn btn-primary signupbtn" type="submit">Blast Off!</button>
             </form>
          </div>

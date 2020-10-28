@@ -262,9 +262,10 @@ button {
     position: relative;
 }
 
+
 .amiimg {
     position: absolute;
-    width: 9.5rem!important;
+    width: 9.5rem;
     height: auto;
     z-index: 2;
     top: 60%;
@@ -274,7 +275,7 @@ button {
 
 .amiimglolly {
  position: absolute;
-    width: 10rem!important;
+    width: 10rem;
     height: auto;
     z-index: 2;
     top: 55%;
@@ -364,7 +365,10 @@ button {
 }
 
 .meh img{
-    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
 }
 
 .shakem:hover {
@@ -659,8 +663,11 @@ position: relative;
     -webkit-text-stroke-color: black;
 }
 
+.mrginbtm {
+    margin-bottom: 1rem!important;
+}
+
 .addcommenttxt p {
-    margin: 36px 30px;
     text-align: center;
 text-transform: uppercase;
     font-weight: 900;
@@ -847,7 +854,7 @@ p {
     font-size: 80%;
     text-transform: uppercase;
     letter-spacing: 0.15rem;
-    width: 600px;
+    width: 37.5rem;
     margin:0 auto;
 }
 
@@ -1037,8 +1044,9 @@ margin-right: -15px!important;
 
 .pagination-current, 
 .pagination-total {
-    padding: 0.5em 0.8em;
-    border-radius: 2px;
+    padding: 0.5em 0.9em;
+    /*border-radius: 2px;*/
+    border-radius: 50%;
     color: #fff;
     background-color: #FF9CEE;
 }
@@ -1054,16 +1062,22 @@ margin-right: -15px!important;
     padding-right: 0.5em;
     color: #B9B9B9;
     font-size: 1.3em;
+    margin-top: 0.4rem;
 }
 
 .pagination-of {
     color: #B9B9B9;
     padding: 0 1em;
     font-size: 17px;
+    margin-top: 0.5rem;
 }
 
 .pagination-action:hover {
     color: #3354AA;
+}
+
+.noreviewtxt {
+    padding-left: 2rem;
 }
 /* ------------------------------- bootstrap toasts */
 
@@ -1080,4 +1094,172 @@ margin-right: -15px!important;
 
 .toast-capper {
     height: 2px;
+}
+
+/* devices */
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .brandinfosection {
+  margin: 0 auto;
+  display: block!important;
+  padding: 0!important;
+  width: 100%;
+    height: auto;
+
+      }
+      .brandinfo-wrapper {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .brandinfo-wrapper p {
+          text-align: center;
+      }
+      .img-wrapper {
+          width: 100%;
+        height: auto;
+        display: block;
+      }
+      .twincolumnwrapper {
+          display: block!important;
+          width: 100%!important;
+      }
+      .twincolumns {
+          width: 100%!important;
+      }
+      .amiimglolly, .amiimg {
+        width: 7rem!important;
+      }
+      .amiimgrosie {
+          width: 15rem!important;
+      }
+      .speechbubble2 {
+          width: 17rem!important;
+      }
+      .descr-wrap {
+          width: auto!important;
+      }
+      .bgimg {
+          width: 100%!important;
+      }
+      .speechbubble {
+    width: 13rem!important;
+    left: 60%!important;
+      }
+      .timtom {
+    width: 25rem!important;
+      }
+      .frminline input {
+          width: auto;
+      }
+      .half2 {
+          float: left;
+      }
+
+}
+  }
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+      .brandinfosection {
+  margin: 0 auto;
+  display: block!important;
+  padding: 0!important;
+  width: 100%;
+    height: auto;
+
+      }
+      .brandinfo-wrapper {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .brandinfo-wrapper p {
+          text-align: center;
+      }
+      .img-wrapper {
+          width: 100%;
+        height: auto;
+        display: block;
+      }
+      .twincolumnwrapper {
+          display: block!important;
+          width: 100%!important;
+      }
+      .twincolumns {
+          width: 100%!important;
+      }
+      .amiimglolly, .amiimg {
+        width: 7rem!important;
+      }
+      .amiimgrosie {
+          width: 15rem!important;
+      }
+      .speechbubble2 {
+          width: 17rem!important;
+      }
+      .descr-wrap {
+          width: auto!important;
+      }
+      .bgimg {
+          width: 100%!important;
+      }
+      .speechbubble {
+    width: 13rem!important;
+    left: 60%!important;
+      }
+      .timtom {
+    width: 28rem!important;
+      }
+       .btn {
+          padding: 10px 15px!important;
+      }
+      .cartbtn {
+          color: black!important;
+      }
+      .prod-descr {
+         text-align: center;
+      }
+     
+
+}
+
+/* lappy */
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+}
+
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
 }
