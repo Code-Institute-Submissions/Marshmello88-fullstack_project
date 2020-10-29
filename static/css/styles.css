@@ -584,7 +584,6 @@ padding-left: 3rem!important;
     display: flex;
     align-items: center;
     margin-right: 30px;
-    height: 67.5%;
 
     border: 2px solid black;
     background: white;
@@ -594,11 +593,10 @@ padding-left: 3rem!important;
     margin-left: 30px;
 width: 100%;
     border: 2px solid black;
-   height: 75px;
+   height: 72px;
     font-family: 'Pitch Sans Medium', 'Courier New';
     color: black;
     line-height: 20px;
-    margin-bottom: 30px;
  font-size: 1em;
 
 }
@@ -1096,6 +1094,7 @@ margin-right: -15px!important;
     height: 2px;
 }
 
+
 /* devices */
 
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
@@ -1149,11 +1148,11 @@ margin-right: -15px!important;
           width: 100%!important;
       }
       .speechbubble {
-    width: 13rem!important;
-    left: 60%!important;
+        width: 13rem!important;
+        left: 60%!important;
       }
       .timtom {
-    width: 25rem!important;
+         width: 25rem!important;
       }
       .frminline input {
           width: auto;
@@ -1161,79 +1160,95 @@ margin-right: -15px!important;
       .half2 {
           float: left;
       }
+      .btn {
+		padding: 12px 15px;
+	}
+    .commentsection {
+        height: 75px;
+        margin-left: 1px;
+
+    }
+    .addcommentwrapper {
+        height: 50px;
+        text-align: center;
+        margin-right: -1px;
+        margin-left: 1px;
+        justify-content: center;
+    
+    }
+    .submitbtn {
+        padding: 0.5rem;
+        font-size: 13px;
+    }
+    .qty {
+        width: 50%;
+    }
+    .imagecontainer {
+    width: 100%; 
+}
+.morepadding {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 }
-  }
+  
+
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) { 
-      .brandinfosection {
-  margin: 0 auto;
-  display: block!important;
-  padding: 0!important;
-  width: 100%;
-    height: auto;
-
-      }
-      .brandinfo-wrapper {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .brandinfo-wrapper p {
-          text-align: center;
-      }
-      .img-wrapper {
-          width: 100%;
-        height: auto;
-        display: block;
-      }
-      .twincolumnwrapper {
-          display: block!important;
-          width: 100%!important;
-      }
-      .twincolumns {
-          width: 100%!important;
-      }
-      .amiimglolly, .amiimg {
-        width: 7rem!important;
-      }
-      .amiimgrosie {
-          width: 15rem!important;
-      }
-      .speechbubble2 {
-          width: 17rem!important;
-      }
-      .descr-wrap {
-          width: auto!important;
-      }
-      .bgimg {
-          width: 100%!important;
-      }
-      .speechbubble {
-    width: 13rem!important;
-    left: 60%!important;
-      }
-      .timtom {
-    width: 28rem!important;
-      }
-       .btn {
-          padding: 10px 15px!important;
-      }
-      .cartbtn {
-          color: black!important;
-      }
-      .prod-descr {
-         text-align: center;
-      }
-     
-
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+	.brandinfosection {
+		margin: 0 auto;
+		display: block!important;
+		padding: 0!important;
+		width: 100%;
+		height: auto;
+	}
+	.brandinfo-wrapper {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.brandinfo-wrapper p {
+		text-align: center;
+	}
+	.img-wrapper {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.twincolumnwrapper {
+		display: block!important;
+		width: 100%!important;
+	}
+	.twincolumns {
+		width: 100%!important;
+	}
+	.amiimglolly,
+	.amiimg {
+		width: 7rem!important;
+	}
+	.amiimgrosie {
+		width: 15rem!important;
+	}
+	.speechbubble2 {
+		width: 17rem!important;
+	}
+	.descr-wrap {
+		width: auto!important;
+	}
+	.bgimg {
+		width: 100%!important;
+	}
+	.timtom {
+		width: 28rem!important;
+	}
+	
 }
+
+
 
 /* lappy */
 
@@ -1262,4 +1277,61 @@ margin-right: -15px!important;
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3) { 
 
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+.brandinfosection {
+		margin: 0 auto;
+		display: block!important;
+		padding: 0!important;
+		width: 100%;
+		height: auto;
+	}
+	.brandinfo-wrapper {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.brandinfo-wrapper p {
+		text-align: center;
+	}
+	.img-wrapper {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.twincolumnwrapper {
+		display: block!important;
+		width: 50%!important;
+	}
+	.twincolumns {
+		width: 100%!important;
+	}
+	.amiimglolly,
+	.amiimg {
+		width: 7rem!important;
+	}
+	.amiimgrosie {
+		width: 15rem!important;
+	}
+	.speechbubble2 {
+		width: 17rem!important;
+	}
+	.descr-wrap {
+		width: auto!important;
+	}
+	.bgimg {
+		width: 100%!important;
+	}
+	.timtom {
+		width: 28rem!important;
+	}
+	
+}
 }

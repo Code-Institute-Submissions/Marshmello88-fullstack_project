@@ -25,7 +25,7 @@
 			<!-- DESCRIPTION etc-->
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="product-details-container mb-5 mt-md-5">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between titleproduct">
 					<p class="mb-0 productname">{{ product.name }}</p>
                     <a href="{% url 'add_favorites' product.id %}"> <i onclick="heartClick(this)" class="heartprimary far fa-heart fa-2x"></i></a> </div>
 					<p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
@@ -159,13 +159,11 @@
 			<form method="POST" action="{% url 'add_review' product.id %}">
 				{% csrf_token %}
 
-				<div class="row bg-yellow">
+				<div class="row bg-yellow  ">
 					<div class="addcommenttxt col-md-12">
 						<p> Leave your review : </p>
 					</div>
-
-
-					<div class="field col-md-8">
+					<div class="field field1 col-md-8 col-sm-8">
 						<div class="control">
 							<textarea class="textarea commentsection" name="content"> </textarea>
 							<!--<div class="field">
@@ -176,7 +174,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-md-4 col-sm-4 field2">
 						<div class="addcommentwrapper">
 							<div class="field submitbtn">
 								<label class="m-0"> Stars </label>

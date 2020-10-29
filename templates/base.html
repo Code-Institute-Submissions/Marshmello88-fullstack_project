@@ -136,8 +136,8 @@
          <div class="text-center">
             <img class="" aria-hidden="true"><i class="fas fa-rocket fa-3x"></i>
             <h2 class="h2margin">Subscribe for whatever!</h2>
-            <form method="POST" class="frminline"> {% csrf_token %}
-               <input class=" inputmargin" id="inputEmail" type="email" placeholder="Enter email address..."><button class="btn btn-primary signupbtn" type="submit">Blast Off!</button>
+            <form method="POST" action="{% url 'newsletter' %}" class="frminline"> {% csrf_token %}
+               <input class=" inputmargin" id="inputEmail" name='email' type="email" placeholder="Enter email address..."><button class="btn btn-primary signupbtn" type="submit">Blast Off!</button>
             </form>
          </div>
       </div>

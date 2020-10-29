@@ -28,26 +28,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
-
-class Meta:
-    db_table = 'categories'
-    ordering = ['-created_at']
-    verbose_name = "Category"
-    verbose_name_plural = "Categories" # doesnt seem to work?
-    unique_together = ('slug', 'parent')    
-
-
-
-#def get_absolute_url(self):      
-  #  return ('catalog_category', (), { 'category_slug': self.slug }) 
-
-#get_absolute_url = models.permalink(get_absolute_url) 
-
-def get_absolute_url(self):
-    return reverse(
-            'category_slug', 
-            args=[self.slug, self.version_number]) 
+    def get_absolute_url(self):
+        return reverse(
+                'category_slug', 
+                args=[self.slug, self.version_number]) 
 
 
 class Product(models.Model):
@@ -83,10 +67,10 @@ class Product(models.Model):
 
 
 
-def get_absolute_url(self):
-    return reverse(
-            'product_slug', 
-            args=[self.slug, self.version_number]) 
+    def get_absolute_url(self):
+        return reverse(
+                'product_slug', 
+                args=[self.slug, self.version_number]) 
 
 
 

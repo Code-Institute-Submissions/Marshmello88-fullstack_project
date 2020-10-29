@@ -3,15 +3,13 @@ from .models import Product, Category, ProductReview
 #from catalog.forms import ProductAdminForm 
 
 # Register your models here.
-admin.site.register(Product)
-admin.site.register(Category)
-admin.site.register(ProductReview)
+
 
 class ProductAdmin(admin.ModelAdmin):
     #form = ProductAdminForm
 
     # sets values for how the admin site lists your products
-    list_display = ('name', 'price', 'old_price', 'created_at', 'updated_at',)
+    list_display = ('name', 'price', 'created_at', 'updated_at',)
     list_display_links = ('name',)
     list_per_page = 50
     ordering = ['-created_at'] 
@@ -34,5 +32,9 @@ class CategoryAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'updated_at',)
 
     # sets up slug to be generated from category name
-    prepopulated_fields = {'slug': ('name')}
+    prepopulated_fields = {'slug': ['name']}
 
+
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(ProductReview)
