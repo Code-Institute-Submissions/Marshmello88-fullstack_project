@@ -11,7 +11,7 @@ class Category(models.Model):
         db_table = 'categories'
         ordering = ['-created_at']
         verbose_name = "Category"
-        verbose_name_plural = "Categories" # doesnt seem to work?
+        verbose_name_plural = "Categories" 
         unique_together = ('slug', 'parent')    
 
     name = models.CharField(max_length=50)

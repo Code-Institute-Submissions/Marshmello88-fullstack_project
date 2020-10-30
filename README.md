@@ -51,3 +51,10 @@ A link to the shopping cart must be present on every page. This should display o
 
 Users, even anonymous ones that haven’t registered or logged in, should be able to
 add items to their cart.
+
+A user can edit the billing information on their profile.
+
+#Tested on
+
+ipad ipad pro (landscape and portrait) laptop with hpdi aptop with mpdi, iphone 5, iphone 6/7/8/, iphone 6/7/8 plus, iphone x
+(phones tested in portrait mode)

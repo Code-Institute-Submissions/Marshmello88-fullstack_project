@@ -1,7 +1,18 @@
 {% extends "base.html"%}
 {% block content %}
-<h1> Signup</h1>
+
+<div class="container-fluid specialbg extrapadding">
 {% if form.errors %}
-<div class='alert alert-danger'>{{form.errors}}</div>
+<div class="alert alert-danger customalert text-center">{{form.errors}}</div>
 {% endif %}
+	<div class="row text-center ">
+		<div class="col-md-12 col-sm-4">
+			<hr>
+			<h2 class="logo-font mb-4 productname carttitle">Signup</h2>
+			<hr>
+
+		</div>
+	</div>
+    
+</div>
 {% endblock %}

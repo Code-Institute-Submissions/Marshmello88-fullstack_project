@@ -159,6 +159,14 @@ button {
     width: 1px;
 }
 
+.extrapadding {
+padding-bottom: 5rem;
+}
+
+.customalert {
+    margin-top:2.8rem;
+}
+
 .cartcount {
     display: flex;
     align-items: center;
@@ -1107,7 +1115,6 @@ margin-right: -15px!important;
       .brandinfosection {
   margin: 0 auto;
   display: block!important;
-  padding: 0!important;
   width: 100%;
     height: auto;
 
@@ -1190,6 +1197,9 @@ margin-right: -15px!important;
     padding-left: 0;
     padding-right: 0;
 }
+.remove-item {
+    float: left!important;
+}
 
 }
   
@@ -1202,7 +1212,6 @@ margin-right: -15px!important;
 	.brandinfosection {
 		margin: 0 auto;
 		display: block!important;
-		padding: 0!important;
 		width: 100%;
 		height: auto;
 	}
@@ -1226,8 +1235,7 @@ margin-right: -15px!important;
 	.twincolumns {
 		width: 100%!important;
 	}
-	.amiimglolly,
-	.amiimg {
+	.amiimglolly {
 		width: 7rem!important;
 	}
 	.amiimgrosie {
@@ -1306,13 +1314,6 @@ margin-right: -15px!important;
 		height: auto;
 		display: block;
 	}
-	.twincolumnwrapper {
-		display: block!important;
-		width: 50%!important;
-	}
-	.twincolumns {
-		width: 100%!important;
-	}
 	.amiimglolly,
 	.amiimg {
 		width: 7rem!important;
@@ -1332,6 +1333,42 @@ margin-right: -15px!important;
 	.timtom {
 		width: 28rem!important;
 	}
+    .brandinfosection {
+
+    display: flex!important;
 	
 }
+.speechbubble {
+    width: 15rem!important;
 }
+.form-group {
+    width: 80%!important;
+}
+.addcommentwrapper {
+    margin-right: 0px; 
+}
+.submitbtn {
+    padding: 1.25rem 1.5rem;
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+.twincolumnwrapper {
+    margin-top: 6rem;
+}
+.brandinfo-wrapper {
+    padding: 2rem;
+}
+.submitbtn {
+    padding:1;
+
+}
+.submitbtn {
+        height: 69px;
+
+}
+  }

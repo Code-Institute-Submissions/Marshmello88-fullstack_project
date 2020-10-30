@@ -1,4 +1,18 @@
 {% extends "base.html"%}
 {% block content %}
-<h1> Thank you for signing up</h1>
+<div class="container-fluid specialbg extrapadding">
+	<div class="row text-center ">
+		<div class="col-md-12 col-sm-4">
+			<hr>
+			<h2 class="logo-font mb-4 productname carttitle">Mission Accomplished!</h2>
+			<hr>
+            <p class="text-align-center"> Benefits of our newsletter? New collectibles. Sick deals. Good news.</p>
+            <a href="{% url 'products' %}" class="btn cartbtn rounded-0 my-2 ">
+		<span class="text-uppercase">Continue shopping</span>
+	</a>
+		</div>
+	</div>
+    
+</div>
+
 {% endblock %}

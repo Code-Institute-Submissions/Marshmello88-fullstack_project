@@ -3,6 +3,8 @@ from .models import Product, Category, ProductReview
 from django.db.models import Q # new
 from django.contrib import messages
 from django.core.paginator import Paginator
+from .forms import ProductForm
+
 
 
 # Create your views here.
@@ -76,6 +78,25 @@ def add_review(request, product_id):
 
         return redirect(reverse('product_detail', args=[product_id]))
 
+def add_product(request):
+    """ Add a product to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+        
+    template = 'catalog/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
 
 
 

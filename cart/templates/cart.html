@@ -47,7 +47,7 @@
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
-                                                    <div class="input-group-prepend">
+                                                    <div class="input-group-prepend d-none d-sm-block">
                                                         <button class="decrement-qty btn btn-sm plusminusbtn plusminus_sm rounded-0" 
                                                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                             <span>
@@ -59,7 +59,7 @@
                                                         name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                                         data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
+                                                    <div class="input-group-append d-none d-sm-block">
                                                         <button class="increment-qty btn btn-sm plusminusbtn plusminus_sm rounded-0"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                             <span>
@@ -81,7 +81,7 @@
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
+                                <!--    <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>-->
                                     <h4 class="mt-4"><strong>Total: €{{ total|floatformat:2 }}</strong></h4>
                                 </td>
                             </tr>
