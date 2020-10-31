@@ -1,18 +1,18 @@
+#Ecommerce webshop
 
-#Webshop Application 
+My final project for Code Institute's Full Stack Web Developer course.
 
+#Goal
 
 It's an ecommerce website where a user can buy ingame items for their nintendo switch. The users only have three critical goal paths:
 
-View the store's inventory of amiibo villagers.
+1) View the store's inventory of amiibo villagers.
 
-Keep track of the villagers they want to purchase using favorites or using a shopping cart. Note: They don't need to create 
+2) Keep track of the villagers they want to purchase using favorites or using a shopping cart. Note: They don't need to create 
 an account or anything to purchase an item.
 
-Check out and pay for their items.
+3) Check out and pay for their items.
 
-
-#UX
 
 The central target audience for the website are people who want to buy in-game items for their Switch. These are people of all ages. 
 
@@ -66,14 +66,14 @@ add items to their cart.
 
 #Tested on
 
-ipad ipad pro (landscape and portrait) laptop with hpdi aptop with mpdi, iphone 5, iphone 6/7/8/, iphone 6/7/8 plus, iphone x
-(phones tested in portrait mode)
+Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5, iphone 6/7/8, iphone 6/7/8 plus, iphone X
+(phones tested in portrait mode).
 
 #Nice to haves
 
-Responsive design 
+- When adding a product to favorites include some type of heart animation
+- 
 
-#Technologies Used
 
 #Main Tools/Frameworks
 
@@ -113,4 +113,4 @@ Link Heroku app to a GitHub repo. You can selectively deploy from branches or co
 
 #MEDIA
 
-Image sources: https://www.nintendo.com/, www.starface.com 
+Image sources taken from: https://www.nintendo.com/, www.starface.com.

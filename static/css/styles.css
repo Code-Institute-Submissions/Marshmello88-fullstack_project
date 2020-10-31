@@ -734,6 +734,11 @@ p {
 	vertical-align: middle;
 }
 
+#div_id_remember input {
+    display: flex;
+    width: 80%;
+}
+
 .notification__callout {
 	font-style: 1.275rem;
 	text-transform: uppercase;
@@ -778,6 +783,7 @@ p {
 	background-attachment: scroll;
 	background-size: cover;
 	color: #FFFFFF;
+
 }
 
 .signupbtn {
@@ -1042,11 +1048,16 @@ p {
 		display: block!important;
 		width: 100%;
 		height: auto;
+        padding: 0!important;
 	}
+    .half1, .half2 {
+        float: none;
+    }
 	.brandinfo-wrapper {
 		width: 100%;
 		height: auto;
 		display: block;
+        padding: 1rem;
 	}
 	.brandinfo-wrapper p {
 		text-align: center;
@@ -1123,6 +1134,10 @@ p {
 	.remove-item {
 		float: left!important;
 	}
+    #div_id_remember input {
+        display: flex;
+        width: 10%;
+    } 
 }
 
 

@@ -1,18 +1,15 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
-<body>
-   <!----------------------- MAIN SECTION ---------------------->
-   <div class="page-container drawer-page-content" id="PageContainer">
-   <main class="main-content js-focus-hidden" id="MainContent" tabindex="-1">
-   <div class="">
+   <!-- MAIN SECTION -->
+   <main class="main-content js-focus-hidden" id="MainContent" tabindex="-1"></main>
    <div data-section-type="hero-section">
       <div class="frontpage hero--adapt frontp box ratio-container js lazyloaded" id="Hero-hero-1"
-         data-layout="full_width" , data-parent-fit="cover">
+         data-layout="full_width" data-parent-fit="cover">
          <div class="twincolumnwrapper">
             <div class="twincolumns twincolumna">
                <div class="meh cardsetimg"><a title="Check our this skin cream!" href="">
-                  <img src="/media/images/background-d.jpg"> 
+                  <img alt="bg image" src="/media/images/background-d.jpg"> 
                   <img alt="amiibo card" src="/media/images/cardpack1.png">
                   <img alt="amiibo card" src="/media/images/cardpack2.png">
                   <img alt="amiibo card" src="/media/images/cardpack3.png">
@@ -21,7 +18,7 @@
                </div>
                <div class="descr-wrap">
                   <h3>Login to save your faves</h3>
-                  <p><span style="font-size: medium;">Discover new friends, keep track of favorites and rares, and learn how Animal Crossing amiibo cards and amiibo figures can bring your game to life.</span>
+                  <p><span style="font-size: medium;">Discover new friends, keep track of favorites, and learn how Animal Crossing amiibo cards and amiibo figures can bring your game to life.</span>
                   </p>
                   <p><a class="clicky" href="{% url 'account_login' %}"
                      style="background: linear-gradient(to right, rgb(115, 210, 230) 0%, rgb(247, 235, 97) 0%);">LOGIN HERE</a>
@@ -31,11 +28,11 @@
             <div class="twincolumns twincolumnb">
                <div class="meh">
                   <a title="Check our this skin cream!" href="">
-                  <img src="/media/images/bg-d.jpg"> 
-                  <img class="amiimg" src="/media/images/Rosie_NLa.png"> 
-                  <img class=" amiimglolly" src="/media/images/lolly1.png"> 
-                  <img class=" amiimgrosie" src="/media/images/unnamed.png"> 
-                  <img class="speechbubble2" src="/media/images/speechbubblegif.gif"> 
+                  <img alt= "backgroundimagepink" src="/media/images/bg-d.jpg"> 
+                  <img alt="imgofrosie" class="amiimg" src="/media/images/Rosie_NLa.png"> 
+                  <img alt="imgoflolly" class=" amiimglolly" src="/media/images/lolly1.png"> 
+                  <img alt="imgofamiibo" class=" amiimgrosie" src="/media/images/unnamed.png"> 
+                  <img alt="imgospeechbubble" class="speechbubble2" src="/media/images/speechbubblegif.gif"> 
                   </a>
                </div>
                <div class="descr-wrap">
@@ -51,15 +48,12 @@
          </div>
       </div>
    </div>
-   <div class="index-section ">
-   <div class="page-width" id="ProductSection-1590641211073" data-section-type="product"
-      data-ajax-enabled="true">
    <!-- SOMETHING ABOUT THE BRAND -->
    <div class="brandinfosection">
       <div class="img-wrapper">
-         <img class="bgimg" width="640px" height="360px" src="/media/images/skybg.jpg">
-         <img class="amiimg timtom" src="/media/images/timmytommy.png">
-         <img class="amiimg speechbubble" src="/media/images/pixel-speech-bubble.png">
+         <img alt="background image" class="bgimg" width="640" height="360" src="/media/images/skybg.jpg">
+         <img alt="image of timmy and tommy" class="amiimg timtom" src="/media/images/timmytommy.png">
+         <img alt="image of speechbubble" class="amiimg speechbubble" src="/media/images/pixel-speech-bubble.png">
       </div>
       <div class="brandinfo-wrapper">
          <p>

@@ -1,172 +1,174 @@
 {% extends "base.html" %}
 {% load static %}
-{% block content %}
-<div class="container-fluid bgcolorpd">
-   <div class="row">
-      <!-- IMAGE -->
-      <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-         <div class="imagecontainer my-5">
-            {% if product.image %}
-            <a href="{{ product.image.url }}" target="_blank">
-            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"> </a>
-            {% else %}
-            <a href=""><img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"></a>
-            {% endif %}
-         </div>
-      </div>
-      <!-- DESCRIPTION etc-->
-      <div class="col-12 col-md-6 col-lg-4">
-         <div class="product-details-container mb-5 mt-md-5">
-            <div class="d-flex justify-content-between titleproduct">
-               <p class="mb-0 productname">{{ product.name }}</p>
-               <a href="{% url 'add_favorites' product.id %}"> <i onclick="heartClick(this)" class="heartprimary far fa-heart fa-2x"></i></a> 
+
+   {% block content %}
+   <div class="container-fluid bgcolorpd">
+      <div class="row">
+         <!-- IMAGE -->
+         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="imagecontainer my-5">
+               {% if product.image %}
+               <a href="{{ product.image.url }}" target="_blank">
+               <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"> </a>
+               {% else %}
+               <a href=""><img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"></a>
+               {% endif %}
             </div>
-            <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
-            {% if request.user.is_superuser %}
-            <small class="">
-            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-            </small>
-            {% endif %}
-            <p class="mt-3 prod-descr">{{ product.description }}</p>
-            <!--ADD TO CART FORM-->
-            <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
-               {% csrf_token %}
-               <div class="form-row">
-                  <div class="col-12">
-                     <p class="mt-3"><strong>Quantity:</strong></p>
-                     <div class="form-group w-50">
-                        <div class="input-group">
-                           <div class="input-group-prepend">
-                              <button class="decrement-qty btn plusminusbtn rounded-0"
-                                 data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                              <span class="icon">
-                              <i class="fas fa-minus"></i>
-                              </span>
-                              </button>
-                           </div>
-                           <input class="qty_input" type="number"
-                              name="quantity" value="1" min="1" max="99"
-                              data-item_id="{{ product.id }}"
-                              id="id_qty_{{ product.id }}">
-                           <div class="input-group-append">
-                              <button class="increment-qty plusminusbtn btn rounded-0"
-                                 data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                              <span class="icon">
-                              <i class="fas fa-plus"></i>
-                              </span>
-                              </button>
+         </div>
+         <!-- DESCRIPTION etc-->
+         <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-details-container mb-5 mt-md-5">
+               <div class="d-flex justify-content-between titleproduct">
+                  <p class="mb-0 productname">{{ product.name }}</p>
+                  <a href="{% url 'add_favorites' product.id %}"> <i onclick="heartClick(this)" class="heartprimary far fa-heart fa-2x"></i></a> 
+               </div>
+               <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
+               {% if request.user.is_superuser %}
+               <small class="">
+               <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+               <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+               </small>
+               {% endif %}
+               <p class="mt-3 prod-descr">{{ product.description }}</p>
+               <!--ADD TO CART FORM-->
+               <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                  {% csrf_token %}
+                  <div class="form-row">
+                     <div class="col-12">
+                        <p class="mt-3"><strong>Quantity:</strong></p>
+                        <div class="form-group w-50">
+                           <div class="input-group">
+                              <div class="input-group-prepend">
+                                 <button class="decrement-qty btn plusminusbtn rounded-0"
+                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                 <span class="icon">
+                                 <i class="fas fa-minus"></i>
+                                 </span>
+                                 </button>
+                              </div>
+                              <input class="qty_input" type="number"
+                                 name="quantity" value="1" min="1" max="99"
+                                 data-item_id="{{ product.id }}"
+                                 id="id_qty_{{ product.id }}">
+                              <div class="input-group-append">
+                                 <button class="increment-qty plusminusbtn btn rounded-0"
+                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                 <span class="icon">
+                                 <i class="fas fa-plus"></i>
+                                 </span>
+                                 </button>
+                              </div>
                            </div>
                         </div>
                      </div>
+                     <!-- ADD TO CART BUTTON-->
+                     <div class="col-12">
+                        <a href="{% url 'products' %}" class="btn cartbtn rounded-0">
+                        <span class="icon"> <i class="fas fa-chevron-left"></i></span>
+                        <span class="textcartbtn cartbtn">Keep Shopping</span></a>
+                        <input type="submit" class="btn cartbtn rounded-0 text-uppercase" value="Add to Bag">
+                     </div>
+                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                   </div>
-                  <!-- ADD TO CART BUTTON-->
-                  <div class="col-12">
-                     <a href="{% url 'products' %}" class="btn cartbtn rounded-0">
-                     <span class="icon"> <i class="fas fa-chevron-left"></i></span>
-                     <span class="textcartbtn cartbtn">Keep Shopping</span></a>
-                     <input type="submit" class="btn cartbtn rounded-0 text-uppercase" value="Add to Bag">
-                  </div>
-                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
-               </div>
-            </form>
+               </form>
+            </div>
          </div>
       </div>
-   </div>
-   <!--REVIEW SECTION-->
-   <div class="">
-      <div class="reviewheader">
-         <div class="headerInnerContainer">
-            <h5 class="reviewtitle col-md-12">Reviews : )</h5>
-            <h6 class="reviewsHeader">{{ product.name }}</h6>
-         </div>
-         <!-- actual review here -->
-         <div class="reviews noreviewtxt col-md-6 flex-wrap">
-            {% for review in reviews %}
-            <div class="notification">
-               <p class="reviewtxt">
-                  <span> <i class="fas fa-user"></i> </span>{{ request.user.username }}
-                  <span> <i class="fas fa-clock"></i></span> {{ review.created_at|date:"Y-M-D" }} <br>
-               </p>
-               <i class="fa fa-star{% if review.stars < 1 %}-o empty{% endif %}"></i>
-               <i class="fa fa-star{% if review.stars < 2 %}-o empty{% endif %}"></i>
-               <i class="fa fa-star{% if review.stars < 3 %}-o empty{% endif %}"></i>
-               <i class="fa fa-star{% if review.stars < 4 %}-o empty{% endif %}"></i>
-               <i class="fa fa-star{% if review.stars < 5 %}-o empty{% endif %}"></i>
+      <!--REVIEW SECTION-->
+      <div class="">
+         <div class="reviewheader">
+            <div class="headerInnerContainer">
+               <h5 class="reviewtitle col-md-12">Reviews : )</h5>
+               <h6 class="reviewsHeader">{{ product.name }}</h6>
             </div>
-            <div class="reviewbody">
-               {{ review.content }}
-            </div>
-            {% empty %}
-            <div class="notification">
-               No reviews yet.
-            </div>
-            {% endfor %}
-         </div>
-         <!-- pagination -->
-         <div class="pagination col-md-6 text-center">
-            {% if reviews.has_previous %}
-            <a class="pagination-action" href="?page=1">
-            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-            </a>
-            <a class="pagination-action" href="?page={{ page_obj.previous_page_number }}">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            <span class="pagination-current">{{ reviews.number }}</span>
-            <span class="pagination-of">of</span>
-            <span class="pagination-total">{{ reviews.paginator.num_pages }}</span>
-            {% if reviews.has_next %}
-            <a class="pagination-action" href="?page={{ reviews.next_page_number }}">
-            <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-            <a class="pagination-action" href="?page={{ reviews.paginator.num_pages }}">
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-         </div>
-         <!-- pagination end-->
-      </div>
-   </div>
-   <div class="notification">
-      {% if request.user.is_authenticated %}
-      <form method="POST" action="{% url 'add_review' product.id %}">
-         {% csrf_token %}
-         <div class="row bg-yellow  ">
-            <div class="addcommenttxt col-md-12">
-               <p> Leave your review : </p>
-            </div>
-            <div class="field field1 col-md-8 col-sm-8">
-               <div class="control">
-                  <textarea class="textarea commentsection" name="content"> </textarea>
+            <!-- actual review here -->
+            <div class="reviews noreviewtxt col-md-6 flex-wrap">
+               {% for review in reviews %}
+               <div class="notification">
+                  <p class="reviewtxt">
+                     <span> <i class="fas fa-user"></i> </span>{{ request.user.username }}
+                     <span> <i class="fas fa-clock"></i></span> {{ review.created_at|date:"Y-M-D" }} <br>
+                  </p>
+                  <i class="fa fa-star{% if review.stars < 1 %}-o empty{% endif %}"></i>
+                  <i class="fa fa-star{% if review.stars < 2 %}-o empty{% endif %}"></i>
+                  <i class="fa fa-star{% if review.stars < 3 %}-o empty{% endif %}"></i>
+                  <i class="fa fa-star{% if review.stars < 4 %}-o empty{% endif %}"></i>
+                  <i class="fa fa-star{% if review.stars < 5 %}-o empty{% endif %}"></i>
                </div>
+               <div class="reviewbody">
+                  {{ review.content }}
+               </div>
+               {% empty %}
+               <div class="notification">
+                  No reviews yet.
+               </div>
+               {% endfor %}
             </div>
-            <div class="col-md-4 col-sm-4 field2">
-               <div class="addcommentwrapper">
-                  <div class="field submitbtn">
-                     <label class="m-0"> Stars </label>
-                     <select class="stars qty" name="stars">
-                        <option  class ="qty" value="5"> 5</option>
-                        <option  class ="qty" value="4"> 4</option>
-                        <option  class ="qty" value="3"> 3</option>
-                        <option  class ="qty" value="2"> 2</option>
-                        <option  class ="qty" value="1"> 1</option>
-                     </select>
+            <!-- pagination -->
+            <div class="pagination col-md-6 text-center">
+               {% if reviews.has_previous %}
+               <a class="pagination-action" href="?page=1">
+               <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+               </a>
+               <a class="pagination-action" href="?page={{ page_obj.previous_page_number }}">
+               <i class="fa fa-angle-left" aria-hidden="true"></i>
+               </a>
+               {% endif %}
+               <span class="pagination-current">{{ reviews.number }}</span>
+               <span class="pagination-of">of</span>
+               <span class="pagination-total">{{ reviews.paginator.num_pages }}</span>
+               {% if reviews.has_next %}
+               <a class="pagination-action" href="?page={{ reviews.next_page_number }}">
+               <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+               <a class="pagination-action" href="?page={{ reviews.paginator.num_pages }}">
+               <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+               </a>
+               {% endif %}
+            </div>
+            <!-- pagination end-->
+         </div>
+      </div>
+      <div class="notification">
+         {% if request.user.is_authenticated %}
+         <form method="POST" action="{% url 'add_review' product.id %}">
+            {% csrf_token %}
+            <div class="row bg-yellow  ">
+               <div class="addcommenttxt col-md-12">
+                  <p> Leave your review : </p>
+               </div>
+               <div class="field field1 col-md-8 col-sm-8">
+                  <div class="control">
+                     <textarea class="textarea commentsection" name="content"> </textarea>
                   </div>
-                  <div class="btnseparator"></div>
-                  <div class="field ">
-                     <div class="control">
-                        <button class="submitbtn "> submit </button>
+               </div>
+               <div class="col-md-4 col-sm-4 field2">
+                  <div class="addcommentwrapper">
+                     <div class="field submitbtn">
+                        <label class="m-0"> Stars </label>
+                        <select class="stars qty" name="stars">
+                           <option  class ="qty" value="5"> 5</option>
+                           <option  class ="qty" value="4"> 4</option>
+                           <option  class ="qty" value="3"> 3</option>
+                           <option  class ="qty" value="2"> 2</option>
+                           <option  class ="qty" value="1"> 1</option>
+                        </select>
+                     </div>
+                     <div class="btnseparator"></div>
+                     <div class="field ">
+                        <div class="control">
+                           <button class="submitbtn "> submit </button>
+                        </div>
                      </div>
                   </div>
                </div>
-            </div>
-      </form>
+         </form>
+         </div>
       </div>
+      {% else %}
+      <p> please sign in to add review </p>
+      {% endif %}
    </div>
-   {% else %}
-   <p> Please sign in to add review </p>
-    {% endif %}
-
+</div>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
