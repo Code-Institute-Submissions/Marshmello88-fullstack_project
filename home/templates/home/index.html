@@ -1,86 +1,71 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
-
-   <body>
-      <!----------------------- MAIN SECTION ---------------------->
-      <div class="page-container drawer-page-content" id="PageContainer">
-      <main class="main-content js-focus-hidden" id="MainContent" tabindex="-1">
-      <div class="">
-      <div data-section-type="hero-section">
-         <div class="frontpage hero--adapt frontp box ratio-container js lazyloaded" id="Hero-hero-1"
-            data-layout="full_width" , data-parent-fit="cover">
-            <div class="twincolumnwrapper">
-               <div class="twincolumns twincolumna">
-                  <div class="meh cardsetimg"><a title="Check our this skin cream!" href="">
-                     <img src="/media/images/background-d.jpg"> 
-                     
-            <img alt="amiibo card" src="/media/images/cardpack1.png">
-            <img alt="amiibo card" src="/media/images/cardpack2.png">
-            <img alt="amiibo card" src="/media/images/cardpack3.png">
-            <img alt="amiibo card" src="/media/images/cardpack4.png">
-          
-                     
-                     
-                     </a>
-                  </div>
-                  <div class="descr-wrap">
-                     <h3>Login to save your faves</h3>
-                     <p><span style="font-size: medium;">Discover new friends, keep track of favorites, and learn how Animal Crossing amiibo cards and amiibo figures can bring your game to life.</span>
-                     </p>
-                     <p><a class="clicky" href="{% url 'account_login' %}"
-                        style="background: linear-gradient(to right, rgb(115, 210, 230) 0%, rgb(247, 235, 97) 0%);">LOGIN HERE</a>
-                     </p>
-                  </div>
+<body>
+   <!----------------------- MAIN SECTION ---------------------->
+   <div class="page-container drawer-page-content" id="PageContainer">
+   <main class="main-content js-focus-hidden" id="MainContent" tabindex="-1">
+   <div class="">
+   <div data-section-type="hero-section">
+      <div class="frontpage hero--adapt frontp box ratio-container js lazyloaded" id="Hero-hero-1"
+         data-layout="full_width" , data-parent-fit="cover">
+         <div class="twincolumnwrapper">
+            <div class="twincolumns twincolumna">
+               <div class="meh cardsetimg"><a title="Check our this skin cream!" href="">
+                  <img src="/media/images/background-d.jpg"> 
+                  <img alt="amiibo card" src="/media/images/cardpack1.png">
+                  <img alt="amiibo card" src="/media/images/cardpack2.png">
+                  <img alt="amiibo card" src="/media/images/cardpack3.png">
+                  <img alt="amiibo card" src="/media/images/cardpack4.png">
+                  </a>
                </div>
-               <div class="twincolumns twincolumnb">
-                  <div class="meh">
-                     <a title="Check our this skin cream!" href="">
-                        <img src="/media/images/bg-d.jpg"> 
-                        <img class="amiimg" src="/media/images/Rosie_NLa.png"> 
-                        <img class=" amiimglolly" src="/media/images/lolly1.png"> 
-                        <img class=" amiimgrosie" src="/media/images/unnamed.png"> 
-                         <img class="speechbubble2" src="/media/images/speechbubblegif.gif"> 
-                        
-
-                     </a>
-                  </div>
-                  <div class="descr-wrap">
-                     <h3>Invite your dreamie!</h3>
-                     <p>
-                        <span style="font-size: medium;">Nintendo's amiibo let you collect your favorite characters and gain some in-game benefits for having the cards.</span>
-                     </p>
-                     <p><a class="clicky" href="{% url 'products' %}"
-                        style="background: linear-gradient(to right, rgb(115, 210, 230) 0%, rgb(247, 235, 97) 0%);">SHOP&nbsp;ALL</a>
-                     </p>
-                  </div>
+               <div class="descr-wrap">
+                  <h3>Login to save your faves</h3>
+                  <p><span style="font-size: medium;">Discover new friends, keep track of favorites and rares, and learn how Animal Crossing amiibo cards and amiibo figures can bring your game to life.</span>
+                  </p>
+                  <p><a class="clicky" href="{% url 'account_login' %}"
+                     style="background: linear-gradient(to right, rgb(115, 210, 230) 0%, rgb(247, 235, 97) 0%);">LOGIN HERE</a>
+                  </p>
+               </div>
+            </div>
+            <div class="twincolumns twincolumnb">
+               <div class="meh">
+                  <a title="Check our this skin cream!" href="">
+                  <img src="/media/images/bg-d.jpg"> 
+                  <img class="amiimg" src="/media/images/Rosie_NLa.png"> 
+                  <img class=" amiimglolly" src="/media/images/lolly1.png"> 
+                  <img class=" amiimgrosie" src="/media/images/unnamed.png"> 
+                  <img class="speechbubble2" src="/media/images/speechbubblegif.gif"> 
+                  </a>
+               </div>
+               <div class="descr-wrap">
+                  <h3>Invite your dreamie!</h3>
+                  <p>
+                     <span style="font-size: medium;">Nintendo's amiibo let you collect your favorite characters and gain some in-game benefits for having the cards.</span>
+                  </p>
+                  <p><a class="clicky" href="{% url 'products' %}"
+                     style="background: linear-gradient(to right, rgb(115, 210, 230) 0%, rgb(247, 235, 97) 0%);">SHOP&nbsp;ALL</a>
+                  </p>
                </div>
             </div>
          </div>
       </div>
-      <div class="index-section ">
-      <div class="page-width" id="ProductSection-1590641211073" data-section-type="product"
-         data-ajax-enabled="true">
-         <!-- SOMETHING ABOUT THE BRAND -->
-         <div class="brandinfosection">
-            <div class="img-wrapper">
-               <img class="bgimg" width="640px" height="360px" src="/media/images/skybg.jpg">
-               <img class="amiimg timtom" src="/media/images/timmytommy.png"> </a>
-             <img class="amiimg speechbubble" src="/media/images/pixel-speech-bubble.png"> </a>
-
-
-            </div>
-            <div class="brandinfo-wrapper">
-               <p>
-                  Amiibo is a toys-to-life platform by Nintendo, which was launched in November 2014. It consists of a wireless communications and storage protocol for connecting figurines to the Wii U, Nintendo 3DS, and Nintendo Switch video game consoles. These cards use near field communication (NFC) to interact with supported video game software, potentially allowing data to be transferred in and out of games and across multiple platforms.
-               </p>
-               <p> Simply interact with the machine and then place your chosen amiibo or amiibo card on the NFC touchpoint on your controller. If you're using a Joy-Con controller or Nintendo Switch Lite, then the NFC touchpoint is located on the right controller stick.</p>
-               <!--<div class="buttons">
-                  <a href="" class="btn btn-yellow">How to use?</a>
-                  <a href="" class="btn btn-yellow">Something</a>
-               </div>-->
-            </div>
-         </div>
-
-       
-{% endblock %}
+   </div>
+   <div class="index-section ">
+   <div class="page-width" id="ProductSection-1590641211073" data-section-type="product"
+      data-ajax-enabled="true">
+   <!-- SOMETHING ABOUT THE BRAND -->
+   <div class="brandinfosection">
+      <div class="img-wrapper">
+         <img class="bgimg" width="640px" height="360px" src="/media/images/skybg.jpg">
+         <img class="amiimg timtom" src="/media/images/timmytommy.png">
+         <img class="amiimg speechbubble" src="/media/images/pixel-speech-bubble.png">
+      </div>
+      <div class="brandinfo-wrapper">
+         <p>
+            Amiibo is a toys-to-life platform by Nintendo, which was launched in November 2014. It consists of a wireless communications and storage protocol for connecting figurines to the Wii U, Nintendo 3DS, and Nintendo Switch video game consoles. These cards use near field communication (NFC) to interact with supported video game software, potentially allowing data to be transferred in and out of games and across multiple platforms.
+         </p>
+         <p> Simply interact with the machine and then place your chosen amiibo or amiibo card on the NFC touchpoint on your controller. If you're using a Joy-Con controller or Nintendo Switch Lite, then the NFC touchpoint is located on the right controller stick.</p>
+      </div>
+   </div>
+   {% endblock %}

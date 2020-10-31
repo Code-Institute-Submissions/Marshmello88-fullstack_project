@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Product, Category, ProductReview
-from django.db.models import Q # new
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.contrib import messages
 from django.core.paginator import Paginator
 from .forms import ProductForm
@@ -13,20 +14,16 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
-    query = None #new
-    categories = None #new
+    query = None
+    categories = None
 
-    print(f"REQUEST: {request.GET}")
-
-    if request.GET: #new
+    if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            print(f"Category: {categories}")
             products = products.filter(category__name__in=categories)
-            print(f"Category: {products}")
             categories = Category.objects.filter(name=categories)
 
-        if 'q' in request.GET: #new
+        if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
@@ -37,8 +34,8 @@ def all_products(request):
 
     context = {
         'products': products,
-        'search_term': query, #new
-        'current_categories': categories, #new
+        'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'products.html', context)
@@ -49,7 +46,6 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    #review = ProductReview.objects.get_queryset().order_by('id')
     review = product.reviews.all()
 
     paginator = Paginator(review, 2)
@@ -59,7 +55,7 @@ def product_detail(request, product_id):
 
     context = {
         'product': product,
-        'reviews': reviews
+        'reviews': reviews,
     }
 
     return render(request, 'product_detail.html', context)
@@ -67,9 +63,8 @@ def product_detail(request, product_id):
 
 def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    print(f"product: {product}")
+
     if request.method == 'POST' and request.user.is_authenticated:
-        print(f"star in the request: {request.POST['stars']}")
         stars = request.POST.get('stars', 4)
         content = request.POST.get('content', '')
 
@@ -78,8 +73,14 @@ def add_review(request, product_id):
 
         return redirect(reverse('product_detail', args=[product_id]))
 
+
+@login_required
 def add_product(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -91,15 +92,52 @@ def add_product(request):
     else:
         form = ProductForm()
         
-    template = 'catalog/add_product.html'
+    template = 'add_product.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
 
+@login_required
+def edit_product(request, product_id):
+    """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
 
+    template = 'edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+@login_required
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
 
 #https://djangopy.org/how-to/how-to-implement-categories-in-django/
 #https://learndjango.com/tutorials/django-search-tutorial

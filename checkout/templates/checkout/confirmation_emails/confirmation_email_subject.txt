@@ -1,1 +1,1 @@
-WHATEVER Confirmation for Order Number {{ order.order_number }}
+WHATEVER© Confirmation for Order Number {{ order.order_number }}

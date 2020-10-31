@@ -8,24 +8,24 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="profilewrapper specialbg ">
-   <div class="container ">
+<div class="profilewrapper specialbg">
+   <div class="container">
       <div class="row align-items-center justify-content-center">
          <div class="col-12 col-md-6">
             <hr>
             <h2 class="logo-font mb-4 productname carttitle">Product Management</h2>
-            <h5 class="text-muted">Add a Product</h5>
+            <h5 class="text-muted">Edit Product</h5>
             <hr>
          </div>
       </div>
       <div class="row align-items-center justify-content-center">
          <div class="col-12 col-md-6">
-            <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                {% csrf_token %}
                {{ form | crispy }}
                <div class="text-right">
-                  <a class="btn cartbtn rounded-0" href="{% url 'products' %}">Cancel</a>
-                  <button class="btn cartbtn rounded-0" type="submit">Add Product</button>
+                  <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                  <button class="btn btn-black rounded-0" type="submit">Update Product</button>
                </div>
             </form>
          </div>

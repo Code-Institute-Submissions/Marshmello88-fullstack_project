@@ -1,12 +1,10 @@
 from django.contrib import admin
 from .models import Product, Category, ProductReview
-#from catalog.forms import ProductAdminForm 
 
 # Register your models here.
 
 
 class ProductAdmin(admin.ModelAdmin):
-    #form = ProductAdminForm
 
     # sets values for how the admin site lists your products
     list_display = ('name', 'price', 'created_at', 'updated_at',)
@@ -23,7 +21,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     #sets up values for how admin site lists categories
-
     list_display = ('name', 'created_at', 'updated_at',)
     list_display_links = ('name',)
     list_per_page = 20
