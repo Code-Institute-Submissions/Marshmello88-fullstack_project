@@ -2,7 +2,7 @@
 {% load static %}
 {% load cart_tools %}
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/checkout.css' %}">
 {% endblock %}
 {% block content %}
 <div class="overlay"></div>
@@ -78,6 +78,7 @@
                {{ order_form.county | as_crispy_field }}
                {{ order_form.postcode | as_crispy_field }}
                {{ order_form.country | as_crispy_field }}
+               {{ order_form.promo_code | as_crispy_field }}
                <div class="form-check form-check-inline float-right mr-0">
                   {% if user.is_authenticated %}
                   <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>

@@ -132,7 +132,7 @@
          {% if request.user.is_authenticated %}
          <form method="POST" action="{% url 'add_review' product.id %}">
             {% csrf_token %}
-            <div class="row bg-yellow  ">
+            <div class="row bg-yellow ">
                <div class="addcommenttxt col-md-12">
                   <p> Leave your review : </p>
                </div>
@@ -160,6 +160,7 @@
                         </div>
                      </div>
                   </div>
+               </div>
                </div>
          </form>
          </div>

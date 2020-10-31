@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 from .forms import OrderForm
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, PromoCode
 from catalog.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
@@ -13,6 +13,13 @@ from cart.contexts import cart_contents
 
 import stripe
 import json
+import random
+import string
+
+def get_random_string(length):
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
 
 
 @require_POST
@@ -36,22 +43,10 @@ def cache_checkout_data(request):
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
+    order_form = OrderForm(request.POST or None, user=request.user)
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-
-        form_data = {
-            'full_name': request.POST['full_name'],
-            'email': request.POST['email'],
-            'phone_number': request.POST['phone_number'],
-            'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['town_or_city'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
-        }
-        order_form = OrderForm(form_data)
+        
         if order_form.is_valid():
             order = order_form.save()
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -81,22 +76,20 @@ def checkout(request):
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-    else:
-        cart = request.session.get('cart', {})
-        if not cart:
-            messages.error(request, "There's nothing in your cart at the moment")
-            return redirect(reverse('products'))
+    
+    cart = request.session.get('cart', {})
+    if not cart:
+        messages.error(request, "There's nothing in your cart at the moment")
+        return redirect(reverse('products'))
 
-        current_cart = cart_contents(request)
-        total = current_cart['total']
-        stripe_total = round(total * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
-
-        order_form = OrderForm()
+    current_cart = cart_contents(request)
+    total = current_cart['total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -118,12 +111,20 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    promo_code = False
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
         order.user_profile = profile
-        order.save()
+        order.save()       
+
+        if Order.objects.filter(user_profile=profile).count() == 1:
+            promo_code = PromoCode.objects.create(
+                user=request.user,
+                percent_discount=0.2,
+                code=get_random_string(10)
+            )
 
         # Save the user's info
         if save_info:
@@ -150,6 +151,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'promo_code': promo_code
     }
 
     return render(request, template, context)

@@ -1,11 +1,12 @@
 import uuid
+from decimal import Decimal
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+from django.utils import timezone
 from django_countries.fields import CountryField
 from catalog.models import Product
 from profiles.models import UserProfile
-
 
 
 class Order(models.Model):
@@ -27,6 +28,7 @@ class Order(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_cart = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    promo_code = models.ForeignKey('checkout.PromoCode', on_delete=models.SET_NULL, null=True)
 
     def _generate_order_number(self):
         """
@@ -42,6 +44,9 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
         self.total = self.order_total + self.delivery_cost
+
+        if self.promo_code:
+            self.total *= Decimal(1 - self.promo_code.percent_discount)
         self.save()
 
     def save(self, *args, **kwargs):
@@ -51,10 +56,19 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
+        if self.promo_code and not self.promo_code.used_at:
+            self.promo_code.used_at = timezone.now()
+            self.promo_code.save()
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.order_number
+
+    @property
+    def discount(self):
+        if self.promo_code_id:
+            return self.order_total * Decimal(self.promo_code.percent_discount)
+        return 0
 
 
 class OrderLineItem(models.Model):
@@ -73,3 +87,10 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+
+class PromoCode(models.Model):
+    code = models.CharField(max_length=10)
+    percent_discount = models.FloatField(default=0.1)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    used_at = models.DateTimeField(null=True)
