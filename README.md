@@ -1,8 +1,8 @@
-#Ecommerce webshop
+# Ecommerce webshop
 
 My final project for Code Institute's Full Stack Web Developer course.
 
-#Goal
+# Goal
 
 It's an ecommerce website where a user can buy ingame items for their nintendo switch. The users only have three critical goal paths:
 
@@ -16,8 +16,22 @@ an account or anything to purchase an item.
 
 The central target audience for the website are people who want to buy in-game items for their Switch. These are people of all ages. 
 
+# Main features included:
 
-#User Stories 
+- User account area
+
+- Product pages
+
+- Newsletter option
+
+- Reviews and rating system
+
+- Cart and checkout
+
+- Promo code functionality
+
+
+# User Stories 
 
 1) Authentication: User can signup/login/logout 
 
@@ -75,18 +89,18 @@ Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5,
 - 
 
 
-#Main Tools/Frameworks
+# Main Tools/Frameworks
 
 Django, Stripe, Django Crispy Forms, Allauth, Pillow, Heroku, SQlite3, Bootstrap
 
 
-#Languages
+# Languages
 This project uses HTML, CSS, JavaScript and Python programming languages.
 
-#Testing
+# Testing
 Testing is done using the Django testing framework. Everything else was tested manually.
 
-#Validation Services:
+# Validation Services:
 
 The following validation services and linter were used to check the validity of the website code.
 
@@ -95,7 +109,7 @@ W3C Markup Validation was used to validate HTML.
 W3C CSS validation was used to validate CSS.
 
 
-#Deployment to Heroku
+# Deployment to Heroku
 
 Steps to take:
 
