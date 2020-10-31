@@ -86,8 +86,15 @@ Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5,
 # Nice to haves
 
 - When adding a product to favorites include some type of heart animation
+
 - Responsive on more devices
-- 
+
+- Newsletter error is currently unstyled (ran out of time). So will fix that in the future.
+
+- Currently also a slight issue with the styling of product detail page where a user is not logged in. Blue line is
+displayed where the text "please sign in to leave a review" is. This is not a conscious styling choice : D
+
+- Remove icon on favorites page should have a white background so as to not blend into the rest of the image. Will also be fixed.
 
 
 # Main Tools/Frameworks
