@@ -78,14 +78,15 @@ add items to their cart.
 
 21) User can also leave a review.
 
-#Tested on
+# Tested on
 
 Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5, iphone 6/7/8, iphone 6/7/8 plus, iphone X
 (phones tested in portrait mode).
 
-#Nice to haves
+# Nice to haves
 
 - When adding a product to favorites include some type of heart animation
+- Responsive on more devices
 - 
 
 
