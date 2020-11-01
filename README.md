@@ -138,6 +138,15 @@ In heroku dashboard select the master branch then click "Deploy Branch".
 
 Link Heroku app to a GitHub repo. You can selectively deploy from branches or configure auto-deploys.
 
+# Wireframes
+
+![Cart Wireframe](media/cart_wf.jpg)
+
+![Products Wireframe](media/product_wf.jpg)
+
+![Front page Wireframe](media/frontpage_wf.jpg)
+
+
 #MEDIA
 
 Image sources taken from: https://www.nintendo.com/, www.starface.com.
