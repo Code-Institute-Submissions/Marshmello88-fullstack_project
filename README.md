@@ -1,6 +1,6 @@
 # Ecommerce webshop
 
-My final project for Code Institute's Full Stack Web Developer course.
+My final project for Code Institute's Full Stack Web Developer course. Kept the placeholder name, couldn't think of anything clever last minute : D
 
 # Goal
 

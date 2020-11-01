@@ -1,1 +1,1 @@
-web: python manage.py
+web: gunicorn ecommerce_project.wsgi:application
