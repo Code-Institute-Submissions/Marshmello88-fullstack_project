@@ -1,6 +1,6 @@
 # Ecommerce webshop
 
-My final project for Code Institute's Full Stack Web Developer course. Kept the placeholder name, couldn't think of anything clever last minute : D
+My final project for Code Institute's Full Stack Web Developer course.
 
 # Goal
 
@@ -28,7 +28,7 @@ The central target audience for the website are people who want to buy in-game i
 
 - Cart and checkout
 
-- Promo code functionality
+- Promo code functionality, user gets % off next purchase
 
 
 # User Stories 
@@ -78,6 +78,8 @@ add items to their cart.
 
 21) User can also leave a review.
 
+21) New user gets % off next purchase
+
 # Tested on
 
 Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5, iphone 6/7/8, iphone 6/7/8 plus, iphone X
@@ -85,11 +87,14 @@ Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5,
 
 # Nice to haves
 
+- Kept the placeholder name/logo for the time being; original name would be a nice addition in the future
+
 - When adding a product to favorites include some type of heart animation
 
 - Responsive on more devices
 
-- Newsletter error is currently unstyled (ran out of time). So will fix that in the future.
+- Newsletter error (when an incorrect email address is entered) is currently unstyled (ran out of time). So will fix that in 
+the future.
 
 - Currently also a slight issue with the styling of product detail page where a user is not logged in. Blue line is
 displayed where the text "please sign in to leave a review" is. This is not a conscious styling choice : D
