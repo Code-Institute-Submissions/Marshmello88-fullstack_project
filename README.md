@@ -2,6 +2,7 @@
 
 My final project for Code Institute's Full Stack Web Developer course.
 
+
 # Goal
 
 It's an ecommerce website where a user can buy ingame items for their nintendo switch. The users only have three critical goal paths:
@@ -13,8 +14,19 @@ an account or anything to purchase an item.
 
 3) Check out and pay for their items.
 
-
 The central target audience for the website are people who want to buy in-game items for their Switch. These are people of all ages. 
+
+
+# Important to note
+
+I wasn't able to commit my last changes to github due to an error in gitpod (tried to resolve it with a tutor to no avail) so the email verification
+isn't set up but I will provide my own password and email when I hand in this project. Some other small things that I wasn't able to commit and push:
+When a logged in user makes a first purchase it erroneously states that they get 0.2? procent off when in fact it's 20%. Other changes I made but could not 
+commit were, when a user signs up for a newsletter a "mission accomplished" text should appear. On small screens however it appears way too large and so it 
+overflows it's div. The same goes for the order number on small screens. Lastly, the index page text should be slightly edited to include all perks of creating
+an account. I changed one of the texts to: Discover new friends, keep track of favorites. Additional perk? New users with an account get 20% off their 
+<strong> next </strong> order!</span>.
+
 
 # Main features included:
 
@@ -28,7 +40,7 @@ The central target audience for the website are people who want to buy in-game i
 
 - Cart and checkout
 
-- Promo code functionality, user gets % off next purchase
+- Promo code functionality (only for logged in users), after first order user gets 20 % off next purchase
 
 
 # User Stories 
@@ -49,7 +61,7 @@ or leave reviews on items.
 
 7) If the user is logged in, he can view profile page. If not, user gets redirected to the login page.
 
-8) User can edit and update profile details them if needed
+8) User can edit and update profile details if needed
 
 9) Customer is able to read reviews of other customers
 
@@ -61,24 +73,19 @@ or leave reviews on items.
 
 13) Shows the total price of all items (on every page)
 
-14) Allows them to purchase items, purchasing takes the user to payment form 
+14) A link to the shopping cart must be present on every page. This should display order total. 
 
-15) Create a form that allows the user to enter billing info
-
-16) On submit, the order status changes to purchased
-
-17) A link to the shopping cart must be present on every page. This should display order total. 
-
-18) Users, even anonymous ones that haven’t registered or logged in, should be able to
+15) Users, even anonymous ones that haven’t registered or logged in, should be able to
 add items to their cart.
 
-19) A user can edit the billing information on their profile.
+16) A user can edit the billing information on their profile.
 
-20) A user can sign up for a newsletter
+17) A user can sign up for a newsletter
 
-21) User can also leave a review.
+18) User can also leave a review.
 
-21) New user gets % off next purchase
+19) For logged in users only: After first order, user gets % off next purchase
+
 
 # Tested on
 
@@ -91,15 +98,19 @@ Ipad pro (landscape and portrait), laptop with HPDI, laptop with MPDI, iphone 5,
 
 - When adding a product to favorites include some type of heart animation
 
-- Responsive on more devices
+- Responsive on more devices (also in landscape mode)
 
-- Newsletter error (when an incorrect email address is entered) is currently unstyled (ran out of time). So will fix that in 
+- Newsletter error (when an incorrect email address is entered) is currently unstyled (ran out of time). Am awate and will fix that in 
 the future.
 
-- Currently also a slight issue with the styling of product detail page where a user is not logged in. Blue line is
+- Currently also a slight issue with the styling of product detail page where a user is not logged in :( Blue line is
 displayed where the text "please sign in to leave a review" is. This is not a conscious styling choice : D
 
-- Remove icon on favorites page should have a white background so as to not blend into the rest of the image. Will also be fixed.
+- "Remove" icon on favorites page should have a white background so as to not blend into the rest of the image. Will also be fixed.
+That or it needs to be placed somewhere else it doesn't fit the rest of the page atm.
+
+- Front page could look a bit better on phones, my mistake was that I didn't start off with bootstrap right away. So for FP I had to
+adjust everything via media queries, which cost me a lot of time. 
 
 
 # Main Tools/Frameworks
