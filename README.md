@@ -20,12 +20,13 @@ The central target audience for the website are people who want to buy in-game i
 # Important to note
 
 I wasn't able to commit my last changes to github due to an error in gitpod (tried to resolve it with a tutor to no avail) so the email verification
-isn't set up but I will provide my own password and email when I hand in this project. Some other small things that I wasn't able to commit and push:
+isn't set up but I have emailed my email and passw to student care, so new users can be authenticated via admin with my login details. Some other small things that 
+I wasn't able to commit and push:
 When a logged in user makes a first purchase it erroneously states that they get 0.2? procent off when in fact it's 20%. Other changes I made but could not 
 commit were, when a user signs up for a newsletter a "mission accomplished" text should appear. On small screens however it appears way too large and so it 
 overflows it's div. The same goes for the order number on small screens. Lastly, the index page text should be slightly edited to include all perks of creating
 an account. I changed one of the texts to: Discover new friends, keep track of favorites. Additional perk? New users with an account get 20% off their 
-<strong> next </strong> order!</span>.
+<strong> next </strong> order!</span>.  
 
 
 # Main features included:
